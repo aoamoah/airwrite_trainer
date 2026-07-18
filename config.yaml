@@ -1,0 +1,60 @@
+# AirWrite Trainer configuration.
+# Every value here is recorded verbatim in the exported report.
+
+seed: 42
+
+# Dataset folders, all in the AirWrite Capture export layout
+# (P###/S###/{landmarks.csv, labels.csv}). All three sources — own
+# recordings, WITA, IPN — are extracted through the same MediaPipe pipeline
+# in the collector, so features are identical. Folders that don't exist are
+# skipped.
+dataset_dirs: [dataset, dataset_WITA, dataset_IPN]
+
+preprocessing:
+  drop_undetected: false   # keep frames with no hand (all-zero landmarks);
+                           # "no hand visible" is legitimate not-writing signal
+  normalize: wrist         # none | wrist — translate landmarks to the wrist
+                           # origin and scale by hand span, removing dependence
+                           # on where the hand is on screen
+  add_velocity: false      # append frame-to-frame landmark deltas (gives the
+                           # frame-level model temporal information; off by
+                           # default so recurrent models' temporal advantage
+                           # is measured fairly)
+
+split:
+  method: session          # session | participant | random
+  ratios: [0.70, 0.15, 0.15]
+  chunk_rows: 500          # single-CSV datasets without a group column are
+                           # split in contiguous chunks of this many rows to
+                           # avoid neighboring-frame leakage
+
+# Sequence window configurations for LSTM/GRU. Each is trained and reported
+# separately. Random Forest is frame-level and unaffected.
+windows:
+  - {size: 15, stride: 5}
+  - {size: 30, stride: 5}
+  - {size: 60, stride: 10}
+
+models:
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    class_weight: balanced
+    n_jobs: -1
+  lstm:
+    units: 64
+    dropout: 0.3
+    epochs: 60
+    batch_size: 64
+    patience: 8
+    learning_rate: 0.001
+  gru:
+    units: 64
+    dropout: 0.3
+    epochs: 60
+    batch_size: 64
+    patience: 8
+    learning_rate: 0.001
+
+report:
+  out_dir: reports

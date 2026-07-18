@@ -84,6 +84,24 @@ def main():
     print(f"\nReport: {report_path}")
     print(f"Models + results.json in: {out_dir}")
 
+    # ---- ONNX export for C++ inference apps ----
+    # Runs in a subprocess with the GPU hidden: tracing on GPU bakes
+    # CudnnRNN ops into the graph, which ONNX cannot represent.
+    import os
+    import subprocess
+    print("\nExporting ONNX models…")
+    env = dict(os.environ, CUDA_VISIBLE_DEVICES="")
+    proc = subprocess.run(
+        [sys.executable, str(PROJECT_ROOT / "export_onnx.py"), str(out_dir)],
+        env=env, capture_output=True, text=True,
+    )
+    for line in proc.stdout.splitlines():
+        if line.strip():
+            print(line)
+    if proc.returncode != 0:
+        print("[warn] ONNX export failed — run manually: "
+              f"CUDA_VISIBLE_DEVICES= python export_onnx.py {out_dir}")
+
 
 if __name__ == "__main__":
     main()

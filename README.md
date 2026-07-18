@@ -130,7 +130,64 @@ Example: to train GRU only on 30-frame windows, reduce `windows:` to
 | `models/` | Trained models: `<dataset>_random_forest.joblib`, `<dataset>_<rnn>_w<size>.keras` — these are what an inference app loads |
 | `results.json` | Every metric, history and setting, machine-readable |
 
-## 6. Methodology notes (what a reviewer will ask)
+## 6. Using the models in a Qt / C++ inference app
+
+`.keras` / `.joblib` files are Python-only. Every run therefore also
+exports **ONNX** copies of all models (`models/*.onnx`, parity-checked
+against the originals at export time) plus `models/inference_spec.json`
+describing exactly how to prepare inputs. One C++ runtime — [ONNX
+Runtime](https://onnxruntime.ai) — then serves all three model types.
+
+To re-export an older run manually:
+
+```bash
+CUDA_VISIBLE_DEVICES= venv/bin/python export_onnx.py reports/run_<timestamp>
+```
+
+### The contract (from `inference_spec.json`)
+
+1. Per frame, build the feature vector in `feature_order` (default 64
+   values: `hand_detected`, then `l0_x…l20_z` from MediaPipe).
+2. Apply the same normalization: subtract wrist (l0) x/y/z from every
+   landmark, divide by the max distance of any landmark from the wrist;
+   all-zero frames stay zero.
+3. **LSTM/GRU**: keep a rolling buffer of the last *window* frames (oldest
+   first) and run input shape `[1, window, n_features]` — output is the
+   sigmoid probability of `writing`. **Random Forest**: single frame,
+   `[1, n_features]` — output 1 is `probabilities[not_writing, writing]`.
+4. Compare against `decision_threshold` (0.5).
+
+### Minimal Qt/C++ example
+
+```cpp
+#include <onnxruntime_cxx_api.h>
+
+Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "airwrite");
+Ort::Session session(env, "dataset_gru_w30.onnx", Ort::SessionOptions{});
+
+// rolling window buffer filled from MediaPipe, preprocessed per the spec
+std::vector<float> input(1 * 30 * 64);          // [1, window, features]
+std::array<int64_t, 3> shape{1, 30, 64};
+
+auto mem = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+Ort::Value tensor = Ort::Value::CreateTensor<float>(
+    mem, input.data(), input.size(), shape.data(), shape.size());
+
+const char* in_names[]  = {"input"};
+const char* out_names[] = {"output_0"};
+auto out = session.Run(Ort::RunOptions{}, in_names, &tensor, 1, out_names, 1);
+float p_writing = out[0].GetTensorData<float>()[0];
+bool writing = p_writing >= 0.5f;
+```
+
+CMake: link against onnxruntime (`find_package(onnxruntime)` with the
+prebuilt release, or point `target_include_directories` /
+`target_link_libraries` at the extracted archive). MediaPipe's C++ hand
+landmarker provides the per-frame landmarks on the Qt side. Check the
+actual input/output names with `Ort::Session::GetInputNameAllocated` — the
+RF models use `input` → outputs `[label, probabilities]`.
+
+## 7. Methodology notes (what a reviewer will ask)
 
 - **No temporal leakage:** whole sessions go to one split; random frame
   splits are available only as an explicitly-labeled leaky baseline. The

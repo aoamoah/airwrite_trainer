@@ -1,0 +1,7 @@
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.4
+matplotlib>=3.8
+tensorflow[and-cuda]>=2.16
+PyYAML>=6.0
+joblib>=1.3

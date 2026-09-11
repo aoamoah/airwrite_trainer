@@ -4,23 +4,171 @@
 seed: 42
 
 # Dataset folders, all in the AirWrite Capture export layout
-# (P###/S###/{landmarks.csv, labels.csv}). All three sources — own
-# recordings, WITA, IPN — are extracted through the same MediaPipe pipeline
-# in the collector, so features are identical. Folders that don't exist are
-# skipped.
+# (P###/S###/{landmarks.csv, labels.csv, metadata.json}). Every source is
+# extracted through the same MediaPipe pipeline in the collector, so features
+# are identical; a new source is a new `dataset_<Source>` folder added here.
+# Folders that don't exist are skipped. Check each new source's label
+# granularity in the report before pooling it — see src/data/label_stats.py.
 dataset_dirs: [dataset, dataset_WITA, dataset_IPN]
 
 preprocessing:
+  target_fps: 30           # resample every session onto one frame rate
+                           # (sample-and-hold, causal) so every frame-counted
+                           # setting — motion windows, recurrent windows,
+                           # smoothing, event tolerances — is the same
+                           # duration for every source. null keeps native
+                           # rates. Sessions within 5% of the target are
+                           # left untouched
+  require_resolution: true # stop if a session's resolution is unknown rather
+                           # than leave its x uncorrected. The collector
+                           # records it in metadata.json (schema_version 2)
+  pose_source: image       # image | world. world = MediaPipe world landmarks:
+                           # metric, hand-centred, independent of resolution
+                           # and aspect. Motion features always come from
+                           # image landmarks (world ones carry no position).
+                           # The live app must use the same source
+  mirror_left_hands: true  # mirror poses MediaPipe labels Left into
+                           # right-hand form, so left-handed participants and
+                           # mirrored (front-camera) sources share one pose
+                           # space. Needs the collector's handedness column
   drop_undetected: false   # keep frames with no hand (all-zero landmarks);
                            # "no hand visible" is legitimate not-writing signal
+                           # — but see the by-detection breakdown in the
+                           # report: P(writing | no hand) is 0.03 against 0.38
+                           # when a hand is present, so these frames are very
+                           # nearly a free correct answer
+  aspect_correct: true     # rescale x by width/height into image-height units.
+                           # MediaPipe x is a fraction of width and y a
+                           # fraction of height, so the axes carry different
+                           # scales on any non-square video; wrist
+                           # normalisation divides both by one isotropic hand
+                           # span and cannot undo it. Needs
+                           # session_resolutions.json — build it with
+                           #   ../data_collector/venv/bin/python scan_resolutions.py
+  time_normalize: true     # divide speeds by the real dt from timestamp_ms
+                           # rather than counting frames. Three sessions are
+                           # 60 fps and the rest 30, so a frame-indexed speed
+                           # puts them on different scales — and a 30-frame
+                           # window is 1.0 s at 30 fps but 0.5 s at 60
+  causal_motion: true      # use TRAILING rolling windows for the motion
+                           # features instead of centred ones. Centred
+                           # windows look forward — the mean at frame t spans
+                           # t-15..t+15 — which a live app cannot compute.
+                           # Measured on real sessions the two differ by
+                           # 25-43% on average, so a model trained on centred
+                           # windows is fed something materially different at
+                           # inference. Trailing costs 0.84 points of F1
+                           # (66.96 -> 66.12, RF, 10-fold LOPO) and removes
+                           # the train/serve skew entirely. Set false only to
+                           # reproduce the older centred-window numbers
+  add_motion: true         # fingertip and wrist speed in hand-widths per
+                           # second, with rolling means and standard
+                           # deviations. Air-writing is mostly whole-hand
+                           # translation, which wrist normalisation deletes;
+                           # these are taken before it is applied
+  pose_features: true      # keep the 63 landmark columns. false runs the
+                           # motion-only ablation
   normalize: wrist         # none | wrist — translate landmarks to the wrist
                            # origin and scale by hand span, removing dependence
-                           # on where the hand is on screen
+                           # on where the hand is on screen. Kept on by
+                           # default so "wrist-normalised pose only"
+                           # (add_motion: false) stays a runnable ablation
+                           # against the pose + motion arm
   add_velocity: false      # append frame-to-frame landmark deltas (gives the
                            # frame-level model temporal information; off by
                            # default so recurrent models' temporal advantage
-                           # is measured fairly)
+                           # is measured fairly). --velocity flips it on for
+                           # the ablation.
+  heuristic_smooth_frames: 5   # smoothing window for the fingertip-speed
+                               # signal the rule baselines threshold
 
+evaluation:
+  scheme: auto             # auto | lopo | group_kfold | holdout
+                           # auto = leave-one-participant-out while the cohort
+                           # is small enough, grouped k-fold beyond that.
+                           # holdout uses the single split under `split:` below
+                           # and exists for the leakage ablation.
+  lopo_max_participants: 16
+  k: 5                     # folds when the scheme is group_kfold
+  val_participants: 2      # early-stopping val, drawn from TRAINING
+                           # participants only — never from the test fold
+  val_fraction: 0.15       # target share of training frames held out for val;
+                           # the subset closest to the training class prior
+                           # wins, so val can't end up with an inverted prior
+  max_folds: null          # cap folds (debugging); null = run them all
+  fit_threshold: true      # fit every model's decision threshold on the
+                           # validation split, never on test. Without this the
+                           # rule baselines get a fitted operating point and
+                           # the learned models are scored at a flat 0.5,
+                           # which handicaps one side of the comparison the
+                           # study is about. Set false for the ablation
+  threshold_beta: 1.0      # F-beta the threshold maximises. 2.0 weights
+                           # recall, which is what a live detector wants:
+                           # missing a writing episode costs the user more
+                           # than a brief false positive
+  threshold_source: val    # oob | val | train — where the Random Forest's
+                           # decision threshold is fitted. Measured on
+                           # `dataset` over 13 LOPO folds; ROC AUC is 0.795 in
+                           # all three, so only the operating point differs:
+                           #   val    F1 55.17   thr 0.384 (sd 0.115)
+                           #   oob    F1 51.12   thr 0.519 (sd 0.021)
+                           #   train  F1 34.43   thr 0.623 (sd 0.204)
+                           # The finding: a threshold has to be fitted on
+                           # unseen *participants*, not merely unseen rows.
+                           # Out-of-bag is five times more stable and still
+                           # worse — its rows' participants were in training,
+                           # a seen participant's scores sit higher, so it
+                           # picks a threshold too high for a new hand. Two
+                           # noisy but genuinely unseen people beat 44k
+                           # seen-participant rows. Recurrent models use val
+                           # for the same reason.
+  window_label: last       # last | majority. last labels a recurrent window
+                           # by its final frame — the "writing now?" question
+                           # a live app answers, and where its score is laid
+                           # on the timeline. majority (the old behaviour)
+                           # trains the model to report a state half a window
+                           # old and cannot target a pause shorter than half
+                           # the window
+  event_metrics: true      # score writing *episodes*, not only frames
+  smoothing:               # temporal post-processing, reported alongside the
+                           # raw predictions rather than replacing them
+    enabled: true
+    band: 0.2              # hysteresis width around the fitted threshold —
+                           # cross threshold+band/2 to start writing, fall
+                           # below threshold-band/2 to stop. A score hovering
+                           # at a single threshold flips every few frames
+    min_on: 3              # delete predicted episodes shorter than this
+    min_off: 3             # fill gaps shorter than this — a 2-frame dropout
+                           # mid-stroke is a tracking artifact, not the user
+                           # stopping. Kept at the shortest scored pause
+                           # (min_pause_frames): at 5, it filled 28% of the
+                           # real pauses in `dataset` (under 167 ms), which a
+                           # mid-letter detector must keep
+  events:
+    iou_threshold: 0.5     # a predicted episode matches a true one when their
+                           # temporal intersection-over-union clears this.
+                           # Matching is one-to-one, so a single prediction
+                           # spanning the session cannot "detect" everything
+    tolerance_frames: 12   # ~400 ms at 30 fps: the onset-proximity criterion,
+                           # and the tolerance the closest published video
+                           # work reports, so the numbers are comparable
+    min_event_frames: 3    # runs shorter than this are annotation noise —
+                           # 10.7% of the label runs in `dataset` are 1-2
+                           # frames long
+    pause_tolerances_frames: [5, 10, 12]
+                           # pause events, the pen-in-air benchmark's
+                           # protocol: a pause bounded by writing is matched
+                           # when both of its boundaries are within this many
+                           # frames (~167/333/400 ms at 30 fps). The benchmark
+                           # reports F2 at exactly these three
+    min_pause_frames: 3    # shortest pause counted as an event (100 ms)
+    segment_overlaps: [0.10, 0.25, 0.50]
+                           # segmental F1@k, the temporal action segmentation
+                           # standard (with Edit score)
+
+# Single train/val/test holdout. Only used when evaluation.scheme is
+# `holdout` — kept so the session-level split can be re-run on identical
+# data and models to quantify participant leakage.
 split:
   method: session          # session | participant | random
   ratios: [0.70, 0.15, 0.15]
@@ -36,6 +184,12 @@ windows:
   - {size: 60, stride: 10}
 
 models:
+  # Rule-based baselines (Objective 4). Nothing is learned but the decision
+  # threshold, which is fitted on the training split of each fold.
+  velocity_threshold:
+    search_steps: 199
+  extension_threshold:
+    search_steps: 199
   random_forest:
     n_estimators: 300
     max_depth: null
@@ -58,3 +212,6 @@ models:
 
 report:
   out_dir: reports
+  save_models: first_fold  # first_fold | all | none — cross-validation trains
+                           # one model per fold; keeping them all is rarely
+                           # useful and the ONNX export expects one per config

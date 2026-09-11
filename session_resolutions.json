@@ -1,0 +1,749 @@
+{
+  "sessions": {
+    "dataset/P001/S002": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1083,
+      "video": "video.mp4"
+    },
+    "dataset/P001/S016": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 2392,
+      "video": "video.mp4"
+    },
+    "dataset/P002/S003": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 2168,
+      "video": "video.mp4"
+    },
+    "dataset/P003/S006": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1555,
+      "video": "video.mp4"
+    },
+    "dataset/P004/S007": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1616,
+      "video": "video.mp4"
+    },
+    "dataset/P005/S040": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1343,
+      "video": "video.mp4"
+    },
+    "dataset/P006/S010": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1269,
+      "video": "video.mp4"
+    },
+    "dataset/P006/S011": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1631,
+      "video": "video.mp4"
+    },
+    "dataset/P006/S012": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1342,
+      "video": "video.mp4"
+    },
+    "dataset/P007/S013": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1166,
+      "video": "video.mp4"
+    },
+    "dataset/P007/S014": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1117,
+      "video": "video.mp4"
+    },
+    "dataset/P007/S015": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1059,
+      "video": "video.mp4"
+    },
+    "dataset/P008/S017": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1504,
+      "video": "video.mp4"
+    },
+    "dataset/P008/S018": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1263,
+      "video": "video.mp4"
+    },
+    "dataset/P008/S019": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1508,
+      "video": "video.mp4"
+    },
+    "dataset/P009/S020": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 2168,
+      "video": "video.mp4"
+    },
+    "dataset/P009/S021": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 749,
+      "video": "video.mp4"
+    },
+    "dataset/P009/S022": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1666,
+      "video": "video.mp4"
+    },
+    "dataset/P009/S023": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1869,
+      "video": "video.mp4"
+    },
+    "dataset/P009/S024": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 671,
+      "video": "video.mp4"
+    },
+    "dataset/P009/S025": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 1501,
+      "video": "video.mp4"
+    },
+    "dataset/P010/S026": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3288,
+      "video": "video.mp4"
+    },
+    "dataset/P010/S027": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 993,
+      "video": "video.mp4"
+    },
+    "dataset/P010/S028": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.015,
+      "frames": 2001,
+      "video": "video.mp4"
+    },
+    "dataset/P011/S043": {
+      "width": 362,
+      "height": 640,
+      "aspect": 0.565625,
+      "fps": 29.509,
+      "frames": 2477,
+      "video": "video.mp4"
+    },
+    "dataset/P011/S044": {
+      "width": 362,
+      "height": 640,
+      "aspect": 0.565625,
+      "fps": 30.0,
+      "frames": 2192,
+      "video": "video.mp4"
+    },
+    "dataset/P015/S075": {
+      "width": 464,
+      "height": 480,
+      "aspect": 0.966667,
+      "fps": 29.999,
+      "frames": 1029,
+      "video": "video.mp4"
+    },
+    "dataset/P015/S076": {
+      "width": 480,
+      "height": 496,
+      "aspect": 0.967742,
+      "fps": 29.998,
+      "frames": 970,
+      "video": "video.mp4"
+    },
+    "dataset/P015/S077": {
+      "width": 480,
+      "height": 512,
+      "aspect": 0.9375,
+      "fps": 29.998,
+      "frames": 1758,
+      "video": "video.mp4"
+    },
+    "dataset/P015/S078": {
+      "width": 592,
+      "height": 480,
+      "aspect": 1.233333,
+      "fps": 29.999,
+      "frames": 1213,
+      "video": "video.mp4"
+    },
+    "dataset/P016/S081": {
+      "width": 832,
+      "height": 464,
+      "aspect": 1.793103,
+      "fps": 60.0,
+      "frames": 3926,
+      "video": "video.mp4"
+    },
+    "dataset/P016/S082": {
+      "width": 800,
+      "height": 480,
+      "aspect": 1.666667,
+      "fps": 59.964,
+      "frames": 3314,
+      "video": "video.mp4"
+    },
+    "dataset/P016/S083": {
+      "width": 800,
+      "height": 480,
+      "aspect": 1.666667,
+      "fps": 59.963,
+      "frames": 3261,
+      "video": "video.mp4"
+    },
+    "dataset_IPN/P0010_IPN/S044": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 3616,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0010_IPN/S045": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3601,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0010_IPN/S046": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3608,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0010_IPN/S047": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 3613,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0011_IPN/S048": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3675,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0011_IPN/S049": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3665,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0011_IPN/S050": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3686,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0011_IPN/S051": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3618,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0012_IPN/S056": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3636,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0012_IPN/S057": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3613,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0012_IPN/S058": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3770,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0012_IPN/S059": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3649,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0013_IPN/S060": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4077,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0013_IPN/S061": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4026,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0013_IPN/S062": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3866,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0013_IPN/S063": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4444,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0014_IPN/S064": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4291,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0014_IPN/S065": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4014,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0014_IPN/S066": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3882,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0014_IPN/S067": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3846,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0015_IPN/S068": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4188,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0015_IPN/S069": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4543,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0015_IPN/S070": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4709,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0015_IPN/S071": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4241,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0016_IPN/S072": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4765,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0016_IPN/S073": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4543,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0016_IPN/S074": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4242,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P0016_IPN/S075": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4511,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P001_IPN/S001": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3987,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P001_IPN/S002": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3784,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P001_IPN/S003": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3921,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P001_IPN/S004": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3889,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P002_IPN/S011": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3796,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P002_IPN/S012": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3676,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P002_IPN/S013": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4012,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P002_IPN/S014": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3843,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P003_IPN/S015": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4260,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P003_IPN/S016": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4795,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P003_IPN/S017": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 5055,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P003_IPN/S018": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 29.97,
+      "frames": 4190,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P005_IPN/S027": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3686,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P005_IPN/S028": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4682,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P005_IPN/S029": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3688,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P005_IPN/S030": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3664,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P006_IPN/S031": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4287,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P006_IPN/S032": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4476,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P006_IPN/S033": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4383,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P006_IPN/S034": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4434,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P007_IPN/S035": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3696,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P007_IPN/S036": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3747,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P007_IPN/S037": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3786,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P007_IPN/S038": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3859,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P008_IPN/S040": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4124,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P008_IPN/S041": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4465,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P008_IPN/S042": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4243,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P008_IPN/S043": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4583,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P009_IPN/S052": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4087,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P009_IPN/S053": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3976,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P009_IPN/S054": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 4234,
+      "video": "video.avi"
+    },
+    "dataset_IPN/P009_IPN/S055": {
+      "width": 640,
+      "height": 480,
+      "aspect": 1.333333,
+      "fps": 30.0,
+      "frames": 3927,
+      "video": "video.avi"
+    }
+  },
+  "missing": []
+}

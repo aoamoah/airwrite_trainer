@@ -4,11 +4,22 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 def build_random_forest(params: dict, seed: int) -> RandomForestClassifier:
+    """Random Forest, with out-of-bag scoring enabled.
+
+    `oob_decision_function_` gives a genuinely out-of-sample prediction for
+    every training row — each tree votes only on the rows its bootstrap left
+    out. That is what the decision threshold is fitted on: it is unbiased
+    like a validation split, but the size of the whole training set, so the
+    operating point does not swing with whichever two participants happened
+    to land in validation. It costs nothing extra to compute.
+    """
     return RandomForestClassifier(
         n_estimators=params.get("n_estimators", 300),
         max_depth=params.get("max_depth"),
         class_weight=params.get("class_weight", "balanced"),
         n_jobs=params.get("n_jobs", -1),
+        bootstrap=True,
+        oob_score=True,
         random_state=seed,
     )
 

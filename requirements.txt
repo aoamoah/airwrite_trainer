@@ -9,3 +9,4 @@ onnx>=1.16
 tf2onnx>=1.16
 skl2onnx>=1.17
 onnxruntime>=1.18
+pytest>=8.0          # tests/: venv/bin/python -m pytest tests

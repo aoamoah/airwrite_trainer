@@ -13,9 +13,11 @@ from matplotlib.colors import LinearSegmentedColormap
 
 # Categorical slots in fixed order — model identity keeps its color everywhere
 MODEL_COLORS = {
-    "random_forest": "#2a78d6",   # blue
-    "lstm": "#008300",            # green
-    "gru": "#e87ba4",             # magenta
+    "velocity_threshold": "#b8b6ae",   # grey — baselines recede
+    "extension_threshold": "#8e8c84",
+    "random_forest": "#2a78d6",        # blue
+    "lstm": "#008300",                 # green
+    "gru": "#e87ba4",                  # magenta
 }
 TRAIN_COLOR, VAL_COLOR = "#2a78d6", "#008300"
 
@@ -129,35 +131,75 @@ def feature_importance_figure(importances: list, title: str, path: Path) -> str:
     return _save(fig, path)
 
 
-def comparison_figure(results: list, metric: str, path: Path) -> str:
-    """Grouped bars: best test <metric> per model, grouped by dataset.
-    For recurrent models the best window config is shown."""
-    datasets = sorted({r.dataset for r in results})
-    models = [m for m in MODEL_COLORS if any(r.model == m for r in results)]
+def comparison_figure(aggregates: list, metric: str, path: Path) -> str:
+    """Grouped bars: best mean test <metric> per model, grouped by dataset.
+
+    Error bars are the standard deviation across folds — the bar height alone
+    would hide a model that is excellent on some participants and useless on
+    others. For recurrent models the best window config is shown.
+    """
+    datasets = sorted({a.dataset for a in aggregates})
+    models = [m for m in MODEL_COLORS if any(a.model == m for a in aggregates)]
 
     best = {}
-    for r in results:
-        v = r.test_metrics.get(metric)
+    for a in aggregates:
+        v = a.mean(metric)
         if v is None:
             continue
-        key = (r.dataset, r.model)
+        key = (a.dataset, a.model)
         if key not in best or v > best[key][0]:
-            best[key] = (v, r.window)
+            best[key] = (v, a.std(metric) or 0.0)
 
     x = np.arange(len(datasets))
     width = 0.8 / max(1, len(models))
-    fig, ax = plt.subplots(figsize=(1.8 + 1.9 * len(datasets), 3.6))
+    fig, ax = plt.subplots(figsize=(2.4 + 2.4 * len(datasets), 3.8))
     for mi, model in enumerate(models):
-        vals = [best.get((d, model), (np.nan, None))[0] for d in datasets]
+        vals = [best.get((d, model), (np.nan, 0.0))[0] for d in datasets]
+        errs = [best.get((d, model), (np.nan, 0.0))[1] for d in datasets]
         offset = (mi - (len(models) - 1) / 2) * width
         bars = ax.bar(x + offset, vals, width * 0.92, label=model,
-                      color=MODEL_COLORS[model])
+                      color=MODEL_COLORS[model],
+                      yerr=errs, capsize=2.5,
+                      error_kw={"ecolor": MUTED, "elinewidth": 1})
         ax.bar_label(bars, fmt="%.3f", fontsize=8, color=INK, padding=2)
     ax.set_xticks(x, datasets)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylim(0, 1.15)
     ax.set_ylabel(f"test {metric}")
     ax.set_title(f"Best test {metric} — model × dataset "
-                 "(best window per recurrent model)", color=INK)
-    ax.legend(frameon=False)
+                 "(mean ± sd over folds)", color=INK)
+    ax.legend(frameon=False, ncol=2, fontsize=8)
     ax.grid(axis="x", visible=False)
+    return _save(fig, path)
+
+
+def fold_spread_figure(aggregates: list, metric: str, path: Path) -> str | None:
+    """One row per configuration, one dot per held-out fold.
+
+    This is the figure that shows whether a mean is trustworthy: a tight
+    cluster generalises across participants, a smear does not.
+    """
+    rows = [a for a in aggregates if a.metrics.get(metric, {}).get("values")
+            and a.n_folds > 1]
+    if not rows:
+        return None
+    rows = sorted(rows, key=lambda a: a.mean(metric) or 0)
+
+    labels, fig_h = [], 0.34 * len(rows) + 1.4
+    fig, ax = plt.subplots(figsize=(7, fig_h))
+    rng = np.random.default_rng(0)
+    for i, a in enumerate(rows):
+        vals = a.metrics[metric]["values"]
+        jitter = rng.uniform(-0.16, 0.16, size=len(vals))
+        ax.scatter(vals, np.full(len(vals), i) + jitter, s=22,
+                   color=MODEL_COLORS.get(a.model, "#2a78d6"), alpha=0.75,
+                   edgecolors="none", zorder=3)
+        ax.scatter([a.mean(metric)], [i], marker="|", s=320, linewidths=2,
+                   color=INK, zorder=4)
+        win = f" {a.window['size']}/{a.window['stride']}" if a.window else ""
+        labels.append(f"{a.dataset} · {a.model}{win}")
+    ax.set_yticks(np.arange(len(rows)), labels, fontsize=8)
+    ax.set_xlim(0, 1.02)
+    ax.set_xlabel(f"test {metric} per held-out fold  (│ = mean)")
+    ax.set_title(f"Per-fold spread of {metric}", color=INK)
+    ax.grid(axis="y", visible=False)
     return _save(fig, path)

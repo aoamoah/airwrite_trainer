@@ -1,0 +1,7 @@
+[skip] nomotion -> /home/kwame/airwrite_trainer/reports/run_20260919_235812
+[skip] motiononly -> /home/kwame/airwrite_trainer/reports/run_20260920_005512
+[run ] world (--pose-source world) started 2026-09-20 05:31:21
+[done] world -> /home/kwame/airwrite_trainer/reports/run_20260920_053128  2026-09-20 06:21:48
+[run ] velocity (--velocity) started 2026-09-20 06:21:48
+[done] velocity -> /home/kwame/airwrite_trainer/reports/run_20260920_062153  2026-09-20 07:13:32
+[chain] finished 2026-09-20 07:13:32

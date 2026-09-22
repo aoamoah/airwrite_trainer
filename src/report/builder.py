@@ -48,6 +48,41 @@ def _pm(agg: Aggregate, metric: str) -> str:
     return f"{100 * m:.2f}% ± {100 * (s or 0):.2f}"
 
 
+def _always_writing(aggregates: list[Aggregate], corpus: str) -> dict | None:
+    """Scores of a detector that answers "writing" on every frame, per fold.
+
+    With the writing share p of a test fold, precision is p and recall 1, so
+    F1 = 2p/(1+p) and F2 = 5p/(4p+1); accuracy and average precision are p.
+    This is the floor that F1 (writing) has to be read against: on a corpus
+    that is mostly writing it is high without any model. Priors come from the
+    frame-level results, whose folds and scored frames every model shares.
+    """
+    priors = next(
+        ([f["test_writing_prior"] for f in a.per_fold
+          if f.get("test_writing_prior") is not None]
+         for a in aggregates if a.dataset == corpus and a.window is None
+         and a.per_fold), [])
+    if not priors:
+        return None
+
+    def stats(values):
+        return {"mean": statistics.fmean(values),
+                "std": statistics.stdev(values) if len(values) > 1 else 0.0}
+    return {
+        "f1_writing": stats([2 * p / (1 + p) for p in priors]),
+        "f2_writing": stats([5 * p / (4 * p + 1) for p in priors]),
+        "accuracy": stats(priors),
+        "average_precision": stats(priors),
+        "n_folds": len(priors),
+    }
+
+
+def _pm_stats(block: dict | None) -> str:
+    if not block:
+        return "—"
+    return f"{100 * block['mean']:.2f}% ± {100 * block['std']:.2f}"
+
+
 def _window_name(r) -> str:
     w = r.window
     return f"w{w['size']}/s{w['stride']}" if w else "frames"
@@ -464,6 +499,13 @@ def _corpus_matrix(aggregates: list[Aggregate], metric: str) -> list[str]:
                 mark = " **←**" if (a.mean(metric) or 0) == best[c] else ""
                 row.append(f"| {_pm(a, metric)}{mark} ")
             lines.append("".join(row) + "|")
+
+    trivial = {c: _always_writing(aggregates, c) for c in corpora}
+    if any(t and metric in t for t in trivial.values()):
+        lines.append("| **No model** — the reference every score is read "
+                     "against |" + " |" * len(corpora))
+        lines.append("| always writing " + "".join(
+            f"| {_pm_stats((trivial[c] or {}).get(metric))} " for c in corpora) + "|")
     return lines
 
 
@@ -782,6 +824,15 @@ def _comparison_section(aggregates: list[Aggregate], fig_dir: Path) -> str:
         "hand-crafted signal, and exists to be a floor the learned models "
         "have to clear, not a competing architecture._",
         "",
+        "_**always writing** is no model at all: it answers writing on every "
+        "frame, and its F1 is 2p/(1+p) for a fold whose writing share is p. "
+        "F1 of the writing class rewards it because recall is perfect, so on a "
+        "corpus that is mostly writing it sits close to the models. Read every "
+        "F1 above as a margin over this row. Average precision (whose floor is "
+        "p) and the episode and segmental tables below separate the models "
+        "far better. Window-level models are scored per window, whose writing "
+        "share differs slightly from the per-frame one used here._",
+        "",
         "> **Read the margin with care.** The rule baselines take their "
         "signal from *raw* landmarks, because wrist normalisation removes the "
         "very translation fingertip speed measures. For most of this "
@@ -840,11 +891,20 @@ def _comparison_section(aggregates: list[Aggregate], fig_dir: Path) -> str:
             delta = ((learned[0].mean(RANK_METRIC) or 0)
                      - (rules[0].mean(RANK_METRIC) or 0))
             lines.append(
-                f"  - Learned vs rule (Objective 4): best rule "
+                f"  - Learned vs rule (Objective 2): best rule "
                 f"`{rules[0].model}` {_pm(rules[0], 'f1_writing')}; best "
                 f"learned `{_config_label(learned[0])}` "
                 f"{_pm(learned[0], 'f1_writing')} — margin "
                 f"**{100 * delta:+.2f}** points.")
+        trivial = _always_writing(aggregates, corpus)
+        if trivial:
+            floor = trivial["f1_writing"]["mean"]
+            parts = [f"`{_config_label(a)}` **{100 * ((a.mean(RANK_METRIC) or 0) - floor):+.2f}**"
+                     for a in (rules[:1] + learned[:1])]
+            lines.append(
+                f"  - Against always writing ({_pm_stats(trivial['f1_writing'])} "
+                f"F1, average precision {trivial['average_precision']['mean']:.4f}): "
+                + ", ".join(parts) + " points of F1.")
     lines.append("")
 
     lines += _events_table(aggregates)

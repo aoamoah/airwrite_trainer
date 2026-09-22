@@ -1,0 +1,168 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789862109.575429 1054460 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Datasets: dataset
+Models: velocity_threshold, extension_threshold, random_forest, lstm, gru
+
+=== dataset: 69,277 frames ===
+[  1%] dataset 1/135 · fold01_P001 random_forest · 7s elapsed, ~16m55s left
+[  1%] dataset 2/135 · fold01_P001 velocity_threshold · 8s elapsed, ~9m35s left
+[  2%] dataset 3/135 · fold01_P001 extension_threshold · 9s elapsed, ~7m07s left
+[  3%] dataset 4/135 · fold02_P002 random_forest · 18s elapsed, ~10m15s left
+[  4%] dataset 5/135 · fold02_P002 velocity_threshold · 19s elapsed, ~8m36s left
+[  4%] dataset 6/135 · fold02_P002 extension_threshold · 20s elapsed, ~7m29s left
+[  5%] dataset 7/135 · fold03_P003 random_forest · 28s elapsed, ~8m37s left
+[  6%] dataset 8/135 · fold03_P003 velocity_threshold · 29s elapsed, ~7m46s left
+[  7%] dataset 9/135 · fold03_P003 extension_threshold · 30s elapsed, ~7m06s left
+[  7%] dataset 10/135 · fold04_P004 random_forest · 37s elapsed, ~7m52s left
+[  8%] dataset 11/135 · fold04_P004 velocity_threshold · 38s elapsed, ~7m18s left
+[  9%] dataset 12/135 · fold04_P004 extension_threshold · 39s elapsed, ~6m49s left
+[ 10%] dataset 13/135 · fold05_P005 random_forest · 49s elapsed, ~7m40s left
+[ 10%] dataset 14/135 · fold05_P005 velocity_threshold · 50s elapsed, ~7m13s left
+[ 11%] dataset 15/135 · fold05_P005 extension_threshold · 51s elapsed, ~6m49s left
+[ 12%] dataset 16/135 · fold06_P006 random_forest · 58s elapsed, ~7m13s left
+[ 13%] dataset 17/135 · fold06_P006 velocity_threshold · 59s elapsed, ~6m51s left
+[ 13%] dataset 18/135 · fold06_P006 extension_threshold · 1m00s elapsed, ~6m32s left
+[ 14%] dataset 19/135 · fold07_P007 random_forest · 1m07s elapsed, ~6m51s left
+[ 15%] dataset 20/135 · fold07_P007 velocity_threshold · 1m08s elapsed, ~6m34s left
+[ 16%] dataset 21/135 · fold07_P007 extension_threshold · 1m09s elapsed, ~6m17s left
+[ 16%] dataset 22/135 · fold08_P008 random_forest · 1m16s elapsed, ~6m34s left
+[ 17%] dataset 23/135 · fold08_P008 velocity_threshold · 1m19s elapsed, ~6m27s left
+[ 18%] dataset 24/135 · fold08_P008 extension_threshold · 1m20s elapsed, ~6m12s left
+[ 19%] dataset 25/135 · fold09_P009 random_forest · 1m27s elapsed, ~6m24s left
+[ 19%] dataset 26/135 · fold09_P009 velocity_threshold · 1m28s elapsed, ~6m11s left
+[ 20%] dataset 27/135 · fold09_P009 extension_threshold · 1m29s elapsed, ~5m58s left
+[ 21%] dataset 28/135 · fold10_P010 random_forest · 1m35s elapsed, ~6m06s left
+[ 21%] dataset 29/135 · fold10_P010 velocity_threshold · 1m36s elapsed, ~5m54s left
+[ 22%] dataset 30/135 · fold10_P010 extension_threshold · 1m38s elapsed, ~5m43s left
+[ 23%] dataset 31/135 · fold11_P011 random_forest · 1m44s elapsed, ~5m51s left
+[ 24%] dataset 32/135 · fold11_P011 velocity_threshold · 1m45s elapsed, ~5m41s left
+[ 24%] dataset 33/135 · fold11_P011 extension_threshold · 1m46s elapsed, ~5m30s left
+[ 25%] dataset 34/135 · fold12_P013 random_forest · 1m55s elapsed, ~5m43s left
+[ 26%] dataset 35/135 · fold12_P013 velocity_threshold · 1m56s elapsed, ~5m33s left
+[ 27%] dataset 36/135 · fold12_P013 extension_threshold · 1m57s elapsed, ~5m23s left
+[ 27%] dataset 37/135 · fold13_P014 random_forest · 2m05s elapsed, ~5m31s left
+[ 28%] dataset 38/135 · fold13_P014 velocity_threshold · 2m06s elapsed, ~5m22s left
+[ 29%] dataset 39/135 · fold13_P014 extension_threshold · 2m07s elapsed, ~5m13s left
+[ 30%] dataset 40/135 · fold14_P015 random_forest · 2m14s elapsed, ~5m18s left
+[ 30%] dataset 41/135 · fold14_P015 velocity_threshold · 2m15s elapsed, ~5m10s left
+[ 31%] dataset 42/135 · fold14_P015 extension_threshold · 2m16s elapsed, ~5m01s left
+[ 32%] dataset 43/135 · fold15_P016 random_forest · 2m23s elapsed, ~5m06s left
+[ 33%] dataset 44/135 · fold15_P016 velocity_threshold · 2m24s elapsed, ~4m58s left
+[ 33%] dataset 45/135 · fold15_P016 extension_threshold · 2m25s elapsed, ~4m51s left
+I0000 00:00:1789862261.077579 1054460 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9707 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:05:00.0, compute capability: 8.6
+I0000 00:00:1789862263.764766 1057916 cuda_dnn.cc:461] Loaded cuDNN version 92400
+[ 34%] dataset 46/135 · fold01_P001 lstm w15 · 3m15s elapsed, ~6m17s left
+[ 35%] dataset 47/135 · fold01_P001 gru w15 · 4m03s elapsed, ~7m36s left
+[ 36%] dataset 48/135 · fold02_P002 lstm w15 · 4m39s elapsed, ~8m26s left
+[ 36%] dataset 49/135 · fold02_P002 gru w15 · 5m09s elapsed, ~9m02s left
+[ 37%] dataset 50/135 · fold03_P003 lstm w15 · 5m42s elapsed, ~9m42s left
+[ 38%] dataset 51/135 · fold03_P003 gru w15 · 6m12s elapsed, ~10m14s left
+[ 39%] dataset 52/135 · fold04_P004 lstm w15 · 6m43s elapsed, ~10m44s left
+[ 39%] dataset 53/135 · fold04_P004 gru w15 · 7m12s elapsed, ~11m09s left
+[ 40%] dataset 54/135 · fold05_P005 lstm w15 · 7m42s elapsed, ~11m34s left
+[ 41%] dataset 55/135 · fold05_P005 gru w15 · 8m14s elapsed, ~11m59s left
+[ 41%] dataset 56/135 · fold06_P006 lstm w15 · 9m15s elapsed, ~13m04s left
+[ 42%] dataset 57/135 · fold06_P006 gru w15 · 10m13s elapsed, ~13m58s left
+[ 43%] dataset 58/135 · fold07_P007 lstm w15 · 11m06s elapsed, ~14m44s left
+[ 44%] dataset 59/135 · fold07_P007 gru w15 · 11m53s elapsed, ~15m18s left
+[ 44%] dataset 60/135 · fold08_P008 lstm w15 · 12m32s elapsed, ~15m40s left
+[ 45%] dataset 61/135 · fold08_P008 gru w15 · 13m10s elapsed, ~15m59s left
+[ 46%] dataset 62/135 · fold09_P009 lstm w15 · 13m42s elapsed, ~16m08s left
+[ 47%] dataset 63/135 · fold09_P009 gru w15 · 14m43s elapsed, ~16m49s left
+[ 47%] dataset 64/135 · fold10_P010 lstm w15 · 15m10s elapsed, ~16m50s left
+[ 48%] dataset 65/135 · fold10_P010 gru w15 · 15m42s elapsed, ~16m55s left
+[ 49%] dataset 66/135 · fold11_P011 lstm w15 · 16m24s elapsed, ~17m08s left
+[ 50%] dataset 67/135 · fold11_P011 gru w15 · 16m58s elapsed, ~17m13s left
+[ 50%] dataset 68/135 · fold12_P013 lstm w15 · 17m27s elapsed, ~17m11s left
+[ 51%] dataset 69/135 · fold12_P013 gru w15 · 18m00s elapsed, ~17m13s left
+[ 52%] dataset 70/135 · fold13_P014 lstm w15 · 18m30s elapsed, ~17m11s left
+[ 53%] dataset 71/135 · fold13_P014 gru w15 · 19m00s elapsed, ~17m07s left
+[ 53%] dataset 72/135 · fold14_P015 lstm w15 · 19m27s elapsed, ~17m01s left
+[ 54%] dataset 73/135 · fold14_P015 gru w15 · 19m55s elapsed, ~16m55s left
+[ 55%] dataset 74/135 · fold15_P016 lstm w15 · 20m27s elapsed, ~16m51s left
+[ 56%] dataset 75/135 · fold15_P016 gru w15 · 20m56s elapsed, ~16m44s left
+[ 56%] dataset 76/135 · fold01_P001 lstm w30 · 21m41s elapsed, ~16m50s left
+[ 57%] dataset 77/135 · fold01_P001 gru w30 · 22m24s elapsed, ~16m52s left
+[ 58%] dataset 78/135 · fold02_P002 lstm w30 · 22m56s elapsed, ~16m46s left
+[ 59%] dataset 79/135 · fold02_P002 gru w30 · 23m30s elapsed, ~16m40s left
+[ 59%] dataset 80/135 · fold03_P003 lstm w30 · 24m13s elapsed, ~16m38s left
+[ 60%] dataset 81/135 · fold03_P003 gru w30 · 24m48s elapsed, ~16m32s left
+[ 61%] dataset 82/135 · fold04_P004 lstm w30 · 25m30s elapsed, ~16m29s left
+[ 61%] dataset 83/135 · fold04_P004 gru w30 · 26m03s elapsed, ~16m19s left
+[ 62%] dataset 84/135 · fold05_P005 lstm w30 · 26m37s elapsed, ~16m10s left
+[ 63%] dataset 85/135 · fold05_P005 gru w30 · 27m11s elapsed, ~15m59s left
+[ 64%] dataset 86/135 · fold06_P006 lstm w30 · 27m51s elapsed, ~15m52s left
+[ 64%] dataset 87/135 · fold06_P006 gru w30 · 28m44s elapsed, ~15m51s left
+[ 65%] dataset 88/135 · fold07_P007 lstm w30 · 29m16s elapsed, ~15m38s left
+[ 66%] dataset 89/135 · fold07_P007 gru w30 · 29m52s elapsed, ~15m26s left
+[ 67%] dataset 90/135 · fold08_P008 lstm w30 · 30m33s elapsed, ~15m16s left
+[ 67%] dataset 91/135 · fold08_P008 gru w30 · 31m08s elapsed, ~15m03s left
+[ 68%] dataset 92/135 · fold09_P009 lstm w30 · 31m48s elapsed, ~14m52s left
+[ 69%] dataset 93/135 · fold09_P009 gru w30 · 32m40s elapsed, ~14m45s left
+[ 70%] dataset 94/135 · fold10_P010 lstm w30 · 33m07s elapsed, ~14m26s left
+[ 70%] dataset 95/135 · fold10_P010 gru w30 · 33m36s elapsed, ~14m08s left
+[ 71%] dataset 96/135 · fold11_P011 lstm w30 · 34m12s elapsed, ~13m53s left
+[ 72%] dataset 97/135 · fold11_P011 gru w30 · 34m43s elapsed, ~13m36s left
+[ 73%] dataset 98/135 · fold12_P013 lstm w30 · 35m20s elapsed, ~13m20s left
+[ 73%] dataset 99/135 · fold12_P013 gru w30 · 35m51s elapsed, ~13m02s left
+[ 74%] dataset 100/135 · fold13_P014 lstm w30 · 36m25s elapsed, ~12m44s left
+[ 75%] dataset 101/135 · fold13_P014 gru w30 · 36m58s elapsed, ~12m26s left
+[ 76%] dataset 102/135 · fold14_P015 lstm w30 · 37m29s elapsed, ~12m07s left
+[ 76%] dataset 103/135 · fold14_P015 gru w30 · 37m58s elapsed, ~11m47s left
+[ 77%] dataset 104/135 · fold15_P016 lstm w30 · 38m41s elapsed, ~11m32s left
+[ 78%] dataset 105/135 · fold15_P016 gru w30 · 39m13s elapsed, ~11m12s left
+[ 79%] dataset 106/135 · fold01_P001 lstm w60 · 39m38s elapsed, ~10m50s left
+[ 79%] dataset 107/135 · fold01_P001 gru w60 · 40m08s elapsed, ~10m30s left
+[ 80%] dataset 108/135 · fold02_P002 lstm w60 · 40m29s elapsed, ~10m07s left
+[ 81%] dataset 109/135 · fold02_P002 gru w60 · 40m51s elapsed, ~9m44s left
+[ 81%] dataset 110/135 · fold03_P003 lstm w60 · 41m17s elapsed, ~9m23s left
+[ 82%] dataset 111/135 · fold03_P003 gru w60 · 41m38s elapsed, ~9m00s left
+[ 83%] dataset 112/135 · fold04_P004 lstm w60 · 42m00s elapsed, ~8m37s left
+[ 84%] dataset 113/135 · fold04_P004 gru w60 · 42m30s elapsed, ~8m16s left
+[ 84%] dataset 114/135 · fold05_P005 lstm w60 · 42m53s elapsed, ~7m54s left
+[ 85%] dataset 115/135 · fold05_P005 gru w60 · 43m13s elapsed, ~7m31s left
+[ 86%] dataset 116/135 · fold06_P006 lstm w60 · 43m42s elapsed, ~7m09s left
+[ 87%] dataset 117/135 · fold06_P006 gru w60 · 44m06s elapsed, ~6m47s left
+[ 87%] dataset 118/135 · fold07_P007 lstm w60 · 44m34s elapsed, ~6m25s left
+[ 88%] dataset 119/135 · fold07_P007 gru w60 · 45m13s elapsed, ~6m04s left
+[ 89%] dataset 120/135 · fold08_P008 lstm w60 · 45m34s elapsed, ~5m41s left
+[ 90%] dataset 121/135 · fold08_P008 gru w60 · 46m01s elapsed, ~5m19s left
+[ 90%] dataset 122/135 · fold09_P009 lstm w60 · 46m23s elapsed, ~4m56s left
+[ 91%] dataset 123/135 · fold09_P009 gru w60 · 46m47s elapsed, ~4m33s left
+[ 92%] dataset 124/135 · fold10_P010 lstm w60 · 47m08s elapsed, ~4m10s left
+[ 93%] dataset 125/135 · fold10_P010 gru w60 · 47m29s elapsed, ~3m47s left
+[ 93%] dataset 126/135 · fold11_P011 lstm w60 · 47m51s elapsed, ~3m25s left
+[ 94%] dataset 127/135 · fold11_P011 gru w60 · 48m15s elapsed, ~3m02s left
+[ 95%] dataset 128/135 · fold12_P013 lstm w60 · 48m40s elapsed, ~2m39s left
+[ 96%] dataset 129/135 · fold12_P013 gru w60 · 49m07s elapsed, ~2m17s left
+[ 96%] dataset 130/135 · fold13_P014 lstm w60 · 49m46s elapsed, ~1m54s left
+[ 97%] dataset 131/135 · fold13_P014 gru w60 · 50m06s elapsed, ~1m31s left
+[ 98%] dataset 132/135 · fold14_P015 lstm w60 · 50m30s elapsed, ~1m08s left
+[ 99%] dataset 133/135 · fold14_P015 gru w60 · 50m51s elapsed, ~45s left
+[ 99%] dataset 134/135 · fold15_P016 lstm w60 · 51m16s elapsed, ~22s left
+[100%] dataset 135/135 · fold15_P016 gru w60 · 51m38s elapsed, ~0s left
+  evaluation: lopo (15 fold(s))
+  random_forest frames: test F1(writing)=0.7534±0.1094 acc=0.6940±0.1244 (15 folds, 91.6s)
+  velocity_threshold frames: test F1(writing)=0.7712±0.1137 acc=0.7149±0.1170 (15 folds, 14.3s)
+  extension_threshold frames: test F1(writing)=0.7444±0.1256 acc=0.6741±0.1295 (15 folds, 12.3s)
+  lstm w15/s5: test F1(writing)=0.7449±0.1290 acc=0.6901±0.1405 (15 folds, 508.8s)
+  gru w15/s5: test F1(writing)=0.7331±0.1239 acc=0.6871±0.1380 (15 folds, 521.7s)
+  lstm w30/s5: test F1(writing)=0.7453±0.1191 acc=0.6816±0.1422 (15 folds, 510.5s)
+  gru w30/s5: test F1(writing)=0.7565±0.1219 acc=0.7066±0.1399 (15 folds, 488.1s)
+  lstm w60/s10: test F1(writing)=0.7593±0.1239 acc=0.6970±0.1474 (15 folds, 323.6s)
+  gru w60/s10: test F1(writing)=0.7590±0.1139 acc=0.7058±0.1305 (15 folds, 330.3s)
+
+Report: /home/kwame/airwrite_trainer/reports/run_20260920_005512/report.md
+Models + results.json in: /home/kwame/airwrite_trainer/reports/run_20260920_005512
+
+Exporting ONNX models…
+  dataset_gru_w15.keras -> dataset_gru_w15.onnx  (parity max diff 7.08e-08)
+  dataset_gru_w30.keras -> dataset_gru_w30.onnx  (parity max diff 1.96e-08)
+  dataset_gru_w60.keras -> dataset_gru_w60.onnx  (parity max diff 3.73e-08)
+  dataset_lstm_w15.keras -> dataset_lstm_w15.onnx  (parity max diff 2.98e-08)
+  dataset_lstm_w30.keras -> dataset_lstm_w30.onnx  (parity max diff 2.98e-08)
+  dataset_lstm_w60.keras -> dataset_lstm_w60.onnx  (parity max diff 5.96e-08)
+  dataset_random_forest.joblib -> dataset_random_forest.onnx  (parity max diff 2.02e-07)
+  inference spec -> inference_spec.json (76 features, 9 model thresholds)
+ONNX export: 7 converted, 0 failed

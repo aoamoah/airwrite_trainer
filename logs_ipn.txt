@@ -1,0 +1,172 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789818490.245816  300594 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/kwame/airwrite_trainer/src/data/loaders.py:111: DtypeWarning: Columns (0: handedness) have mixed types. Specify dtype option on import or set low_memory=False.
+  landmarks = pd.read_csv(d / "landmarks.csv")
+/home/kwame/airwrite_trainer/src/data/loaders.py:111: DtypeWarning: Columns (0: handedness) have mixed types. Specify dtype option on import or set low_memory=False.
+  landmarks = pd.read_csv(d / "landmarks.csv")
+Datasets: dataset_IPN
+Models: velocity_threshold, extension_threshold, random_forest, lstm, gru
+
+=== dataset_IPN: 242,991 frames ===
+[  1%] dataset_IPN 1/135 · fold01_P0010_IPN random_forest · 48s elapsed, ~1h48m left
+[  1%] dataset_IPN 2/135 · fold01_P0010_IPN velocity_threshold · 51s elapsed, ~56m41s left
+[  2%] dataset_IPN 3/135 · fold01_P0010_IPN extension_threshold · 53s elapsed, ~39m20s left
+[  3%] dataset_IPN 4/135 · fold02_P0011_IPN random_forest · 1m38s elapsed, ~54m01s left
+[  4%] dataset_IPN 5/135 · fold02_P0011_IPN velocity_threshold · 1m41s elapsed, ~44m02s left
+[  4%] dataset_IPN 6/135 · fold02_P0011_IPN extension_threshold · 1m44s elapsed, ~37m18s left
+[  5%] dataset_IPN 7/135 · fold03_P0012_IPN random_forest · 2m29s elapsed, ~45m39s left
+[  6%] dataset_IPN 8/135 · fold03_P0012_IPN velocity_threshold · 2m32s elapsed, ~40m19s left
+[  7%] dataset_IPN 9/135 · fold03_P0012_IPN extension_threshold · 2m34s elapsed, ~36m08s left
+[  7%] dataset_IPN 10/135 · fold04_P0013_IPN random_forest · 3m22s elapsed, ~42m05s left
+[  8%] dataset_IPN 11/135 · fold04_P0013_IPN velocity_threshold · 3m24s elapsed, ~38m28s left
+[  9%] dataset_IPN 12/135 · fold04_P0013_IPN extension_threshold · 3m27s elapsed, ~35m25s left
+[ 10%] dataset_IPN 13/135 · fold05_P0014_IPN random_forest · 4m14s elapsed, ~39m49s left
+[ 10%] dataset_IPN 14/135 · fold05_P0014_IPN velocity_threshold · 4m17s elapsed, ~37m04s left
+[ 11%] dataset_IPN 15/135 · fold05_P0014_IPN extension_threshold · 4m19s elapsed, ~34m39s left
+[ 12%] dataset_IPN 16/135 · fold06_P0015_IPN random_forest · 5m05s elapsed, ~37m50s left
+[ 13%] dataset_IPN 17/135 · fold06_P0015_IPN velocity_threshold · 5m07s elapsed, ~35m36s left
+[ 13%] dataset_IPN 18/135 · fold06_P0015_IPN extension_threshold · 5m10s elapsed, ~33m36s left
+[ 14%] dataset_IPN 19/135 · fold07_P0016_IPN random_forest · 5m59s elapsed, ~36m36s left
+[ 15%] dataset_IPN 20/135 · fold07_P0016_IPN velocity_threshold · 6m02s elapsed, ~34m44s left
+[ 16%] dataset_IPN 21/135 · fold07_P0016_IPN extension_threshold · 6m05s elapsed, ~33m02s left
+[ 16%] dataset_IPN 22/135 · fold08_P001_IPN random_forest · 6m50s elapsed, ~35m10s left
+[ 17%] dataset_IPN 23/135 · fold08_P001_IPN velocity_threshold · 6m53s elapsed, ~33m33s left
+[ 18%] dataset_IPN 24/135 · fold08_P001_IPN extension_threshold · 6m56s elapsed, ~32m04s left
+[ 19%] dataset_IPN 25/135 · fold09_P002_IPN random_forest · 7m41s elapsed, ~33m50s left
+[ 19%] dataset_IPN 26/135 · fold09_P002_IPN velocity_threshold · 7m44s elapsed, ~32m25s left
+[ 20%] dataset_IPN 27/135 · fold09_P002_IPN extension_threshold · 7m46s elapsed, ~31m06s left
+[ 21%] dataset_IPN 28/135 · fold10_P003_IPN random_forest · 8m29s elapsed, ~32m27s left
+[ 21%] dataset_IPN 29/135 · fold10_P003_IPN velocity_threshold · 8m32s elapsed, ~31m12s left
+[ 22%] dataset_IPN 30/135 · fold10_P003_IPN extension_threshold · 8m34s elapsed, ~30m01s left
+[ 23%] dataset_IPN 31/135 · fold11_P005_IPN random_forest · 9m19s elapsed, ~31m17s left
+[ 24%] dataset_IPN 32/135 · fold11_P005_IPN velocity_threshold · 9m22s elapsed, ~30m09s left
+[ 24%] dataset_IPN 33/135 · fold11_P005_IPN extension_threshold · 9m24s elapsed, ~29m04s left
+[ 25%] dataset_IPN 34/135 · fold12_P006_IPN random_forest · 10m10s elapsed, ~30m14s left
+[ 26%] dataset_IPN 35/135 · fold12_P006_IPN velocity_threshold · 10m13s elapsed, ~29m12s left
+[ 27%] dataset_IPN 36/135 · fold12_P006_IPN extension_threshold · 10m15s elapsed, ~28m13s left
+[ 27%] dataset_IPN 37/135 · fold13_P007_IPN random_forest · 11m01s elapsed, ~29m12s left
+[ 28%] dataset_IPN 38/135 · fold13_P007_IPN velocity_threshold · 11m04s elapsed, ~28m16s left
+[ 29%] dataset_IPN 39/135 · fold13_P007_IPN extension_threshold · 11m06s elapsed, ~27m21s left
+[ 30%] dataset_IPN 40/135 · fold14_P008_IPN random_forest · 11m52s elapsed, ~28m11s left
+[ 30%] dataset_IPN 41/135 · fold14_P008_IPN velocity_threshold · 11m54s elapsed, ~27m19s left
+[ 31%] dataset_IPN 42/135 · fold14_P008_IPN extension_threshold · 11m57s elapsed, ~26m28s left
+[ 32%] dataset_IPN 43/135 · fold15_P009_IPN random_forest · 12m47s elapsed, ~27m22s left
+[ 33%] dataset_IPN 44/135 · fold15_P009_IPN velocity_threshold · 12m50s elapsed, ~26m33s left
+[ 33%] dataset_IPN 45/135 · fold15_P009_IPN extension_threshold · 12m53s elapsed, ~25m46s left
+I0000 00:00:1789819272.091938  300594 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9707 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:05:00.0, compute capability: 8.6
+I0000 00:00:1789819275.279072  307108 cuda_dnn.cc:461] Loaded cuDNN version 92400
+[ 34%] dataset_IPN 46/135 · fold01_P0010_IPN lstm w15 · 17m45s elapsed, ~34m21s left
+[ 35%] dataset_IPN 47/135 · fold01_P0010_IPN gru w15 · 21m07s elapsed, ~39m33s left
+[ 36%] dataset_IPN 48/135 · fold02_P0011_IPN lstm w15 · 25m54s elapsed, ~46m57s left
+[ 36%] dataset_IPN 49/135 · fold02_P0011_IPN gru w15 · 28m34s elapsed, ~50m08s left
+[ 37%] dataset_IPN 50/135 · fold03_P0012_IPN lstm w15 · 32m02s elapsed, ~54m29s left
+[ 38%] dataset_IPN 51/135 · fold03_P0012_IPN gru w15 · 34m33s elapsed, ~56m54s left
+[ 39%] dataset_IPN 52/135 · fold04_P0013_IPN lstm w15 · 38m06s elapsed, ~1h00m left
+[ 39%] dataset_IPN 53/135 · fold04_P0013_IPN gru w15 · 40m46s elapsed, ~1h03m left
+[ 40%] dataset_IPN 54/135 · fold05_P0014_IPN lstm w15 · 43m11s elapsed, ~1h04m left
+[ 41%] dataset_IPN 55/135 · fold05_P0014_IPN gru w15 · 45m09s elapsed, ~1h05m left
+[ 41%] dataset_IPN 56/135 · fold06_P0015_IPN lstm w15 · 48m51s elapsed, ~1h08m left
+[ 42%] dataset_IPN 57/135 · fold06_P0015_IPN gru w15 · 51m55s elapsed, ~1h11m left
+[ 43%] dataset_IPN 58/135 · fold07_P0016_IPN lstm w15 · 54m19s elapsed, ~1h12m left
+[ 44%] dataset_IPN 59/135 · fold07_P0016_IPN gru w15 · 55m58s elapsed, ~1h12m left
+[ 44%] dataset_IPN 60/135 · fold08_P001_IPN lstm w15 · 1h00m elapsed, ~1h15m left
+[ 45%] dataset_IPN 61/135 · fold08_P001_IPN gru w15 · 1h02m elapsed, ~1h15m left
+[ 46%] dataset_IPN 62/135 · fold09_P002_IPN lstm w15 · 1h06m elapsed, ~1h18m left
+[ 47%] dataset_IPN 63/135 · fold09_P002_IPN gru w15 · 1h09m elapsed, ~1h19m left
+[ 47%] dataset_IPN 64/135 · fold10_P003_IPN lstm w15 · 1h13m elapsed, ~1h21m left
+[ 48%] dataset_IPN 65/135 · fold10_P003_IPN gru w15 · 1h16m elapsed, ~1h22m left
+[ 49%] dataset_IPN 66/135 · fold11_P005_IPN lstm w15 · 1h21m elapsed, ~1h25m left
+[ 50%] dataset_IPN 67/135 · fold11_P005_IPN gru w15 · 1h26m elapsed, ~1h27m left
+[ 50%] dataset_IPN 68/135 · fold12_P006_IPN lstm w15 · 1h29m elapsed, ~1h28m left
+[ 51%] dataset_IPN 69/135 · fold12_P006_IPN gru w15 · 1h32m elapsed, ~1h28m left
+[ 52%] dataset_IPN 70/135 · fold13_P007_IPN lstm w15 · 1h35m elapsed, ~1h28m left
+[ 53%] dataset_IPN 71/135 · fold13_P007_IPN gru w15 · 1h38m elapsed, ~1h29m left
+[ 53%] dataset_IPN 72/135 · fold14_P008_IPN lstm w15 · 1h41m elapsed, ~1h28m left
+[ 54%] dataset_IPN 73/135 · fold14_P008_IPN gru w15 · 1h44m elapsed, ~1h29m left
+[ 55%] dataset_IPN 74/135 · fold15_P009_IPN lstm w15 · 1h47m elapsed, ~1h28m left
+[ 56%] dataset_IPN 75/135 · fold15_P009_IPN gru w15 · 1h49m elapsed, ~1h27m left
+[ 56%] dataset_IPN 76/135 · fold01_P0010_IPN lstm w30 · 1h52m elapsed, ~1h27m left
+[ 57%] dataset_IPN 77/135 · fold01_P0010_IPN gru w30 · 1h55m elapsed, ~1h26m left
+[ 58%] dataset_IPN 78/135 · fold02_P0011_IPN lstm w30 · 1h59m elapsed, ~1h27m left
+[ 59%] dataset_IPN 79/135 · fold02_P0011_IPN gru w30 · 2h02m elapsed, ~1h26m left
+[ 59%] dataset_IPN 80/135 · fold03_P0012_IPN lstm w30 · 2h06m elapsed, ~1h26m left
+[ 60%] dataset_IPN 81/135 · fold03_P0012_IPN gru w30 · 2h10m elapsed, ~1h27m left
+[ 61%] dataset_IPN 82/135 · fold04_P0013_IPN lstm w30 · 2h13m elapsed, ~1h26m left
+[ 61%] dataset_IPN 83/135 · fold04_P0013_IPN gru w30 · 2h15m elapsed, ~1h24m left
+[ 62%] dataset_IPN 84/135 · fold05_P0014_IPN lstm w30 · 2h19m elapsed, ~1h24m left
+[ 63%] dataset_IPN 85/135 · fold05_P0014_IPN gru w30 · 2h22m elapsed, ~1h23m left
+[ 64%] dataset_IPN 86/135 · fold06_P0015_IPN lstm w30 · 2h25m elapsed, ~1h22m left
+[ 64%] dataset_IPN 87/135 · fold06_P0015_IPN gru w30 · 2h29m elapsed, ~1h22m left
+[ 65%] dataset_IPN 88/135 · fold07_P0016_IPN lstm w30 · 2h31m elapsed, ~1h20m left
+[ 66%] dataset_IPN 89/135 · fold07_P0016_IPN gru w30 · 2h33m elapsed, ~1h19m left
+[ 67%] dataset_IPN 90/135 · fold08_P001_IPN lstm w30 · 2h36m elapsed, ~1h18m left
+[ 67%] dataset_IPN 91/135 · fold08_P001_IPN gru w30 · 2h39m elapsed, ~1h16m left
+[ 68%] dataset_IPN 92/135 · fold09_P002_IPN lstm w30 · 2h43m elapsed, ~1h16m left
+[ 69%] dataset_IPN 93/135 · fold09_P002_IPN gru w30 · 2h45m elapsed, ~1h14m left
+[ 70%] dataset_IPN 94/135 · fold10_P003_IPN lstm w30 · 2h50m elapsed, ~1h14m left
+[ 70%] dataset_IPN 95/135 · fold10_P003_IPN gru w30 · 2h55m elapsed, ~1h13m left
+[ 71%] dataset_IPN 96/135 · fold11_P005_IPN lstm w30 · 2h59m elapsed, ~1h13m left
+[ 72%] dataset_IPN 97/135 · fold11_P005_IPN gru w30 · 3h03m elapsed, ~1h11m left
+[ 73%] dataset_IPN 98/135 · fold12_P006_IPN lstm w30 · 3h06m elapsed, ~1h10m left
+[ 73%] dataset_IPN 99/135 · fold12_P006_IPN gru w30 · 3h10m elapsed, ~1h09m left
+[ 74%] dataset_IPN 100/135 · fold13_P007_IPN lstm w30 · 3h12m elapsed, ~1h07m left
+[ 75%] dataset_IPN 101/135 · fold13_P007_IPN gru w30 · 3h16m elapsed, ~1h06m left
+[ 76%] dataset_IPN 102/135 · fold14_P008_IPN lstm w30 · 3h18m elapsed, ~1h04m left
+[ 76%] dataset_IPN 103/135 · fold14_P008_IPN gru w30 · 3h23m elapsed, ~1h03m left
+[ 77%] dataset_IPN 104/135 · fold15_P009_IPN lstm w30 · 3h27m elapsed, ~1h01m left
+[ 78%] dataset_IPN 105/135 · fold15_P009_IPN gru w30 · 3h31m elapsed, ~1h00m left
+[ 79%] dataset_IPN 106/135 · fold01_P0010_IPN lstm w60 · 3h33m elapsed, ~58m19s left
+[ 79%] dataset_IPN 107/135 · fold01_P0010_IPN gru w60 · 3h35m elapsed, ~56m20s left
+[ 80%] dataset_IPN 108/135 · fold02_P0011_IPN lstm w60 · 3h37m elapsed, ~54m28s left
+[ 81%] dataset_IPN 109/135 · fold02_P0011_IPN gru w60 · 3h40m elapsed, ~52m30s left
+[ 81%] dataset_IPN 110/135 · fold03_P0012_IPN lstm w60 · 3h41m elapsed, ~50m23s left
+[ 82%] dataset_IPN 111/135 · fold03_P0012_IPN gru w60 · 3h43m elapsed, ~48m20s left
+[ 83%] dataset_IPN 112/135 · fold04_P0013_IPN lstm w60 · 3h46m elapsed, ~46m28s left
+[ 84%] dataset_IPN 113/135 · fold04_P0013_IPN gru w60 · 3h49m elapsed, ~44m45s left
+[ 84%] dataset_IPN 114/135 · fold05_P0014_IPN lstm w60 · 3h53m elapsed, ~42m56s left
+[ 85%] dataset_IPN 115/135 · fold05_P0014_IPN gru w60 · 3h55m elapsed, ~40m53s left
+[ 86%] dataset_IPN 116/135 · fold06_P0015_IPN lstm w60 · 3h58m elapsed, ~38m59s left
+[ 87%] dataset_IPN 117/135 · fold06_P0015_IPN gru w60 · 4h00m elapsed, ~37m02s left
+[ 87%] dataset_IPN 118/135 · fold07_P0016_IPN lstm w60 · 4h01m elapsed, ~34m51s left
+[ 88%] dataset_IPN 119/135 · fold07_P0016_IPN gru w60 · 4h03m elapsed, ~32m41s left
+[ 89%] dataset_IPN 120/135 · fold08_P001_IPN lstm w60 · 4h04m elapsed, ~30m35s left
+[ 90%] dataset_IPN 121/135 · fold08_P001_IPN gru w60 · 4h06m elapsed, ~28m33s left
+[ 90%] dataset_IPN 122/135 · fold09_P002_IPN lstm w60 · 4h08m elapsed, ~26m29s left
+[ 91%] dataset_IPN 123/135 · fold09_P002_IPN gru w60 · 4h10m elapsed, ~24m27s left
+[ 92%] dataset_IPN 124/135 · fold10_P003_IPN lstm w60 · 4h13m elapsed, ~22m26s left
+[ 93%] dataset_IPN 125/135 · fold10_P003_IPN gru w60 · 4h15m elapsed, ~20m26s left
+[ 93%] dataset_IPN 126/135 · fold11_P005_IPN lstm w60 · 4h18m elapsed, ~18m28s left
+[ 94%] dataset_IPN 127/135 · fold11_P005_IPN gru w60 · 4h20m elapsed, ~16m25s left
+[ 95%] dataset_IPN 128/135 · fold12_P006_IPN lstm w60 · 4h23m elapsed, ~14m23s left
+[ 96%] dataset_IPN 129/135 · fold12_P006_IPN gru w60 · 4h24m elapsed, ~12m18s left
+[ 96%] dataset_IPN 130/135 · fold13_P007_IPN lstm w60 · 4h27m elapsed, ~10m17s left
+[ 97%] dataset_IPN 131/135 · fold13_P007_IPN gru w60 · 4h29m elapsed, ~8m13s left
+[ 98%] dataset_IPN 132/135 · fold14_P008_IPN lstm w60 · 4h32m elapsed, ~6m11s left
+[ 99%] dataset_IPN 133/135 · fold14_P008_IPN gru w60 · 4h34m elapsed, ~4m07s left
+[ 99%] dataset_IPN 134/135 · fold15_P009_IPN lstm w60 · 4h37m elapsed, ~2m04s left
+[100%] dataset_IPN 135/135 · fold15_P009_IPN gru w60 · 4h41m elapsed, ~0s left
+  evaluation: lopo (15 fold(s))
+  random_forest frames: test F1(writing)=0.6735±0.2462 acc=0.8671±0.0592 (15 folds, 663.6s)
+  velocity_threshold frames: test F1(writing)=0.4456±0.1369 acc=0.5617±0.0811 (15 folds, 31.3s)
+  extension_threshold frames: test F1(writing)=0.5683±0.2104 acc=0.8073±0.0578 (15 folds, 29.7s)
+  lstm w15/s5: test F1(writing)=0.6717±0.2462 acc=0.8438±0.1110 (15 folds, 3031.0s)
+  gru w15/s5: test F1(writing)=0.6583±0.2671 acc=0.8385±0.1360 (15 folds, 2532.5s)
+  lstm w30/s5: test F1(writing)=0.7116±0.2481 acc=0.8803±0.0601 (15 folds, 2975.5s)
+  gru w30/s5: test F1(writing)=0.6908±0.2734 acc=0.8751±0.0664 (15 folds, 2810.8s)
+  lstm w60/s10: test F1(writing)=0.7030±0.2519 acc=0.8755±0.0633 (15 folds, 2071.3s)
+  gru w60/s10: test F1(writing)=0.6780±0.2607 acc=0.8437±0.1448 (15 folds, 1889.4s)
+
+Report: /home/kwame/airwrite_trainer/reports/run_20260919_124815/report.md
+Models + results.json in: /home/kwame/airwrite_trainer/reports/run_20260919_124815
+
+Exporting ONNX models…
+  dataset_IPN_gru_w15.keras -> dataset_IPN_gru_w15.onnx  (parity max diff 8.94e-08)
+  dataset_IPN_gru_w30.keras -> dataset_IPN_gru_w30.onnx  (parity max diff 5.96e-08)
+  dataset_IPN_gru_w60.keras -> dataset_IPN_gru_w60.onnx  (parity max diff 0.00e+00)
+  dataset_IPN_lstm_w15.keras -> dataset_IPN_lstm_w15.onnx  (parity max diff 6.33e-08)
+  dataset_IPN_lstm_w30.keras -> dataset_IPN_lstm_w30.onnx  (parity max diff 6.71e-08)
+  dataset_IPN_lstm_w60.keras -> dataset_IPN_lstm_w60.onnx  (parity max diff 5.96e-08)
+  dataset_IPN_random_forest.joblib -> dataset_IPN_random_forest.onnx  (parity max diff 7.81e-08)
+  inference spec -> inference_spec.json (76 features, 9 model thresholds)
+ONNX export: 7 converted, 0 failed

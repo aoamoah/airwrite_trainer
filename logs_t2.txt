@@ -1,0 +1,45 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789854719.413581  865190 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/kwame/airwrite_trainer/src/data/loaders.py:111: DtypeWarning: Columns (0: handedness) have mixed types. Specify dtype option on import or set low_memory=False.
+  landmarks = pd.read_csv(d / "landmarks.csv")
+/home/kwame/airwrite_trainer/src/data/loaders.py:111: DtypeWarning: Columns (0: handedness) have mixed types. Specify dtype option on import or set low_memory=False.
+  landmarks = pd.read_csv(d / "landmarks.csv")
+Datasets: dataset, dataset_WITA, dataset_IPN
+Models: velocity_threshold, extension_threshold, random_forest, lstm, gru
+
+=== transfer: train dataset (69,277 frames) -> test dataset_WITA (38,944) ===
+[ 11%] dataset->dataset_WITA 1/9 · transfer_dataset_to_dataset_WITA random_forest · 14s elapsed, ~1m59s left
+[ 22%] dataset->dataset_WITA 2/9 · transfer_dataset_to_dataset_WITA velocity_threshold · 16s elapsed, ~57s left
+[ 33%] dataset->dataset_WITA 3/9 · transfer_dataset_to_dataset_WITA extension_threshold · 18s elapsed, ~36s left
+I0000 00:00:1789854752.447414  865190 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9707 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:05:00.0, compute capability: 8.6
+I0000 00:00:1789854755.225123  865808 cuda_dnn.cc:461] Loaded cuDNN version 92400
+[ 44%] dataset->dataset_WITA 4/9 · transfer_dataset_to_dataset_WITA lstm w15 · 1m20s elapsed, ~1m40s left
+[ 56%] dataset->dataset_WITA 5/9 · transfer_dataset_to_dataset_WITA gru w15 · 2m09s elapsed, ~1m43s left
+[ 67%] dataset->dataset_WITA 6/9 · transfer_dataset_to_dataset_WITA lstm w30 · 2m47s elapsed, ~1m23s left
+[ 78%] dataset->dataset_WITA 7/9 · transfer_dataset_to_dataset_WITA gru w30 · 3m21s elapsed, ~57s left
+[ 89%] dataset->dataset_WITA 8/9 · transfer_dataset_to_dataset_WITA lstm w60 · 3m47s elapsed, ~28s left
+[100%] dataset->dataset_WITA 9/9 · transfer_dataset_to_dataset_WITA gru w60 · 4m09s elapsed, ~0s left
+  random_forest frames: test F1(writing)=0.8504
+  velocity_threshold frames: test F1(writing)=0.8699
+  extension_threshold frames: test F1(writing)=0.8469
+  lstm w15/s5: test F1(writing)=0.8544
+  gru w15/s5: test F1(writing)=0.8471
+  lstm w30/s5: test F1(writing)=0.8416
+  gru w30/s5: test F1(writing)=0.8416
+  lstm w60/s10: test F1(writing)=0.7522
+  gru w60/s10: test F1(writing)=0.7522
+
+Report: /home/kwame/airwrite_trainer/reports/run_20260919_225209/report.md
+Models + results.json in: /home/kwame/airwrite_trainer/reports/run_20260919_225209
+
+Exporting ONNX models…
+  dataset->dataset_WITA_gru_w15.keras -> dataset->dataset_WITA_gru_w15.onnx  (parity max diff 2.42e-08)
+  dataset->dataset_WITA_gru_w30.keras -> dataset->dataset_WITA_gru_w30.onnx  (parity max diff 2.79e-08)
+  dataset->dataset_WITA_gru_w60.keras -> dataset->dataset_WITA_gru_w60.onnx  (parity max diff 2.98e-08)
+  dataset->dataset_WITA_lstm_w15.keras -> dataset->dataset_WITA_lstm_w15.onnx  (parity max diff 3.17e-08)
+  dataset->dataset_WITA_lstm_w30.keras -> dataset->dataset_WITA_lstm_w30.onnx  (parity max diff 3.35e-08)
+  dataset->dataset_WITA_lstm_w60.keras -> dataset->dataset_WITA_lstm_w60.onnx  (parity max diff 4.10e-08)
+  dataset->dataset_WITA_random_forest.joblib -> dataset->dataset_WITA_random_forest.onnx  (parity max diff 3.59e-07)
+  inference spec -> inference_spec.json (76 features, 9 model thresholds)
+ONNX export: 7 converted, 0 failed

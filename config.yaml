@@ -184,7 +184,7 @@ windows:
   - {size: 60, stride: 10}
 
 models:
-  # Rule-based baselines (Objective 4). Nothing is learned but the decision
+  # Rule-based baselines (Objective 2). Nothing is learned but the decision
   # threshold, which is fitted on the training split of each fold.
   velocity_threshold:
     search_steps: 199

@@ -90,11 +90,11 @@ def load_dataset_folder(dataset_dir: str | Path, name: str,
     root = Path(dataset_dir)
     excluded = set(exclude_participants or ())
     session_dirs = sorted(
-        d for d in root.glob("P*/S*")
+        d for d in root.glob("*/S*")
         if (d / "landmarks.csv").exists() and (d / "labels.csv").exists()
         and d.parent.name not in excluded
     )
-    dropped = sorted({d.parent.name for d in root.glob("P*/S*")} & excluded)
+    dropped = sorted({d.parent.name for d in root.glob("*/S*")} & excluded)
     if not session_dirs:
         raise FileNotFoundError(
             f"No sessions with landmarks.csv + labels.csv found under {root}"
@@ -184,7 +184,7 @@ def load_dataset_folder(dataset_dir: str | Path, name: str,
 
 def combine_datasets(datasets: dict[str, LoadedDataset],
                      name: str = "combined") -> LoadedDataset:
-    """Pool several corpora into one training corpus (RQ4).
+    """Pool several corpora into one training corpus (RQ1: across data sources).
 
     Folds are still cut by participant, so a person held out of training is
     held out of every corpus they appear in. Participant and session IDs are

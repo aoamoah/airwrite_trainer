@@ -1,0 +1,198 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789881710.520405   79391 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+/home/kwame/airwrite_trainer/src/data/splits.py:297: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  writing = frames.assign(w=(frames["label"] == "writing").astype(int)) \
+Datasets: dataset
+Models: velocity_threshold, extension_threshold, random_forest, lstm, gru
+
+=== dataset: 69,277 frames ===
+[  1%] dataset 1/135 · fold01_P001 random_forest · 16s elapsed, ~37m32s left
+[  1%] dataset 2/135 · fold01_P001 velocity_threshold · 18s elapsed, ~19m57s left
+[  2%] dataset 3/135 · fold01_P001 extension_threshold · 19s elapsed, ~14m02s left
+[  3%] dataset 4/135 · fold02_P002 random_forest · 35s elapsed, ~19m08s left
+[  4%] dataset 5/135 · fold02_P002 velocity_threshold · 36s elapsed, ~15m42s left
+[  4%] dataset 6/135 · fold02_P002 extension_threshold · 37s elapsed, ~13m24s left
+[  5%] dataset 7/135 · fold03_P003 random_forest · 53s elapsed, ~16m16s left
+[  6%] dataset 8/135 · fold03_P003 velocity_threshold · 54s elapsed, ~14m26s left
+[  7%] dataset 9/135 · fold03_P003 extension_threshold · 55s elapsed, ~13m00s left
+[  7%] dataset 10/135 · fold04_P004 random_forest · 1m11s elapsed, ~14m53s left
+[  8%] dataset 11/135 · fold04_P004 velocity_threshold · 1m12s elapsed, ~13m39s left
+[  9%] dataset 12/135 · fold04_P004 extension_threshold · 1m13s elapsed, ~12m37s left
+[ 10%] dataset 13/135 · fold05_P005 random_forest · 1m29s elapsed, ~14m03s left
+[ 10%] dataset 14/135 · fold05_P005 velocity_threshold · 1m31s elapsed, ~13m06s left
+[ 11%] dataset 15/135 · fold05_P005 extension_threshold · 1m32s elapsed, ~12m17s left
+[ 12%] dataset 16/135 · fold06_P006 random_forest · 1m48s elapsed, ~13m27s left
+[ 13%] dataset 17/135 · fold06_P006 velocity_threshold · 1m49s elapsed, ~12m42s left
+[ 13%] dataset 18/135 · fold06_P006 extension_threshold · 1m50s elapsed, ~12m01s left
+[ 14%] dataset 19/135 · fold07_P007 random_forest · 2m06s elapsed, ~12m52s left
+[ 15%] dataset 20/135 · fold07_P007 velocity_threshold · 2m07s elapsed, ~12m13s left
+[ 16%] dataset 21/135 · fold07_P007 extension_threshold · 2m08s elapsed, ~11m39s left
+[ 16%] dataset 22/135 · fold08_P008 random_forest · 2m23s elapsed, ~12m19s left
+[ 17%] dataset 23/135 · fold08_P008 velocity_threshold · 2m25s elapsed, ~11m46s left
+[ 18%] dataset 24/135 · fold08_P008 extension_threshold · 2m26s elapsed, ~11m16s left
+[ 19%] dataset 25/135 · fold09_P009 random_forest · 2m41s elapsed, ~11m50s left
+[ 19%] dataset 26/135 · fold09_P009 velocity_threshold · 2m42s elapsed, ~11m21s left
+[ 20%] dataset 27/135 · fold09_P009 extension_threshold · 2m43s elapsed, ~10m55s left
+[ 21%] dataset 28/135 · fold10_P010 random_forest · 2m57s elapsed, ~11m16s left
+[ 21%] dataset 29/135 · fold10_P010 velocity_threshold · 2m58s elapsed, ~10m50s left
+[ 22%] dataset 30/135 · fold10_P010 extension_threshold · 2m59s elapsed, ~10m27s left
+[ 23%] dataset 31/135 · fold11_P011 random_forest · 3m14s elapsed, ~10m52s left
+[ 24%] dataset 32/135 · fold11_P011 velocity_threshold · 3m15s elapsed, ~10m29s left
+[ 24%] dataset 33/135 · fold11_P011 extension_threshold · 3m16s elapsed, ~10m07s left
+[ 25%] dataset 34/135 · fold12_P013 random_forest · 3m31s elapsed, ~10m28s left
+[ 26%] dataset 35/135 · fold12_P013 velocity_threshold · 3m32s elapsed, ~10m07s left
+[ 27%] dataset 36/135 · fold12_P013 extension_threshold · 3m33s elapsed, ~9m47s left
+[ 27%] dataset 37/135 · fold13_P014 random_forest · 3m50s elapsed, ~10m09s left
+[ 28%] dataset 38/135 · fold13_P014 velocity_threshold · 3m51s elapsed, ~9m50s left
+[ 29%] dataset 39/135 · fold13_P014 extension_threshold · 3m52s elapsed, ~9m31s left
+[ 30%] dataset 40/135 · fold14_P015 random_forest · 4m06s elapsed, ~9m45s left
+[ 30%] dataset 41/135 · fold14_P015 velocity_threshold · 4m07s elapsed, ~9m28s left
+[ 31%] dataset 42/135 · fold14_P015 extension_threshold · 4m08s elapsed, ~9m11s left
+[ 32%] dataset 43/135 · fold15_P016 random_forest · 4m24s elapsed, ~9m25s left
+[ 33%] dataset 44/135 · fold15_P016 velocity_threshold · 4m25s elapsed, ~9m08s left
+[ 33%] dataset 45/135 · fold15_P016 extension_threshold · 4m26s elapsed, ~8m52s left
+I0000 00:00:1789881981.670565   79391 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9707 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:05:00.0, compute capability: 8.6
+I0000 00:00:1789881984.713421   81260 cuda_dnn.cc:461] Loaded cuDNN version 92400
+[ 34%] dataset 46/135 · fold01_P001 lstm w15 · 5m02s elapsed, ~9m44s left
+[ 35%] dataset 47/135 · fold01_P001 gru w15 · 5m36s elapsed, ~10m30s left
+[ 36%] dataset 48/135 · fold02_P002 lstm w15 · 6m06s elapsed, ~11m05s left
+[ 36%] dataset 49/135 · fold02_P002 gru w15 · 6m37s elapsed, ~11m37s left
+[ 37%] dataset 50/135 · fold03_P003 lstm w15 · 7m09s elapsed, ~12m10s left
+[ 38%] dataset 51/135 · fold03_P003 gru w15 · 7m39s elapsed, ~12m36s left
+[ 39%] dataset 52/135 · fold04_P004 lstm w15 · 8m12s elapsed, ~13m06s left
+[ 39%] dataset 53/135 · fold04_P004 gru w15 · 8m42s elapsed, ~13m28s left
+[ 40%] dataset 54/135 · fold05_P005 lstm w15 · 9m13s elapsed, ~13m50s left
+[ 41%] dataset 55/135 · fold05_P005 gru w15 · 9m44s elapsed, ~14m09s left
+[ 41%] dataset 56/135 · fold06_P006 lstm w15 · 10m25s elapsed, ~14m42s left
+[ 42%] dataset 57/135 · fold06_P006 gru w15 · 11m09s elapsed, ~15m15s left
+[ 43%] dataset 58/135 · fold07_P007 lstm w15 · 12m04s elapsed, ~16m01s left
+[ 44%] dataset 59/135 · fold07_P007 gru w15 · 12m45s elapsed, ~16m25s left
+[ 44%] dataset 60/135 · fold08_P008 lstm w15 · 13m13s elapsed, ~16m31s left
+[ 45%] dataset 61/135 · fold08_P008 gru w15 · 13m43s elapsed, ~16m39s left
+[ 46%] dataset 62/135 · fold09_P009 lstm w15 · 14m19s elapsed, ~16m51s left
+[ 47%] dataset 63/135 · fold09_P009 gru w15 · 15m00s elapsed, ~17m08s left
+[ 47%] dataset 64/135 · fold10_P010 lstm w15 · 15m28s elapsed, ~17m09s left
+[ 48%] dataset 65/135 · fold10_P010 gru w15 · 15m53s elapsed, ~17m07s left
+[ 49%] dataset 66/135 · fold11_P011 lstm w15 · 16m23s elapsed, ~17m07s left
+[ 50%] dataset 67/135 · fold11_P011 gru w15 · 16m57s elapsed, ~17m12s left
+[ 50%] dataset 68/135 · fold12_P013 lstm w15 · 17m26s elapsed, ~17m11s left
+[ 51%] dataset 69/135 · fold12_P013 gru w15 · 18m00s elapsed, ~17m13s left
+[ 52%] dataset 70/135 · fold13_P014 lstm w15 · 18m33s elapsed, ~17m13s left
+[ 53%] dataset 71/135 · fold13_P014 gru w15 · 19m03s elapsed, ~17m10s left
+[ 53%] dataset 72/135 · fold14_P015 lstm w15 · 19m31s elapsed, ~17m04s left
+[ 54%] dataset 73/135 · fold14_P015 gru w15 · 19m58s elapsed, ~16m57s left
+[ 55%] dataset 74/135 · fold15_P016 lstm w15 · 20m41s elapsed, ~17m03s left
+[ 56%] dataset 75/135 · fold15_P016 gru w15 · 21m10s elapsed, ~16m56s left
+[ 56%] dataset 76/135 · fold01_P001 lstm w30 · 21m50s elapsed, ~16m57s left
+[ 57%] dataset 77/135 · fold01_P001 gru w30 · 22m25s elapsed, ~16m53s left
+[ 58%] dataset 78/135 · fold02_P002 lstm w30 · 23m00s elapsed, ~16m49s left
+[ 59%] dataset 79/135 · fold02_P002 gru w30 · 23m36s elapsed, ~16m43s left
+[ 59%] dataset 80/135 · fold03_P003 lstm w30 · 24m11s elapsed, ~16m37s left
+[ 60%] dataset 81/135 · fold03_P003 gru w30 · 24m45s elapsed, ~16m30s left
+[ 61%] dataset 82/135 · fold04_P004 lstm w30 · 25m40s elapsed, ~16m35s left
+[ 61%] dataset 83/135 · fold04_P004 gru w30 · 26m14s elapsed, ~16m26s left
+[ 62%] dataset 84/135 · fold05_P005 lstm w30 · 26m48s elapsed, ~16m16s left
+[ 63%] dataset 85/135 · fold05_P005 gru w30 · 27m21s elapsed, ~16m05s left
+[ 64%] dataset 86/135 · fold06_P006 lstm w30 · 28m06s elapsed, ~16m01s left
+[ 64%] dataset 87/135 · fold06_P006 gru w30 · 28m41s elapsed, ~15m49s left
+[ 65%] dataset 88/135 · fold07_P007 lstm w30 · 29m22s elapsed, ~15m41s left
+[ 66%] dataset 89/135 · fold07_P007 gru w30 · 29m56s elapsed, ~15m28s left
+[ 67%] dataset 90/135 · fold08_P008 lstm w30 · 30m28s elapsed, ~15m14s left
+[ 67%] dataset 91/135 · fold08_P008 gru w30 · 31m00s elapsed, ~14m59s left
+[ 68%] dataset 92/135 · fold09_P009 lstm w30 · 31m32s elapsed, ~14m44s left
+[ 69%] dataset 93/135 · fold09_P009 gru w30 · 32m12s elapsed, ~14m32s left
+[ 70%] dataset 94/135 · fold10_P010 lstm w30 · 32m45s elapsed, ~14m17s left
+[ 70%] dataset 95/135 · fold10_P010 gru w30 · 33m16s elapsed, ~14m00s left
+[ 71%] dataset 96/135 · fold11_P011 lstm w30 · 33m50s elapsed, ~13m44s left
+[ 72%] dataset 97/135 · fold11_P011 gru w30 · 34m23s elapsed, ~13m28s left
+[ 73%] dataset 98/135 · fold12_P013 lstm w30 · 35m20s elapsed, ~13m20s left
+[ 73%] dataset 99/135 · fold12_P013 gru w30 · 36m01s elapsed, ~13m05s left
+[ 74%] dataset 100/135 · fold13_P014 lstm w30 · 36m36s elapsed, ~12m48s left
+[ 75%] dataset 101/135 · fold13_P014 gru w30 · 37m10s elapsed, ~12m31s left
+[ 76%] dataset 102/135 · fold14_P015 lstm w30 · 37m43s elapsed, ~12m12s left
+[ 76%] dataset 103/135 · fold14_P015 gru w30 · 38m14s elapsed, ~11m52s left
+[ 77%] dataset 104/135 · fold15_P016 lstm w30 · 38m47s elapsed, ~11m33s left
+[ 78%] dataset 105/135 · fold15_P016 gru w30 · 39m21s elapsed, ~11m14s left
+[ 79%] dataset 106/135 · fold01_P001 lstm w60 · 39m52s elapsed, ~10m54s left
+[ 79%] dataset 107/135 · fold01_P001 gru w60 · 40m20s elapsed, ~10m33s left
+[ 80%] dataset 108/135 · fold02_P002 lstm w60 · 40m42s elapsed, ~10m10s left
+[ 81%] dataset 109/135 · fold02_P002 gru w60 · 41m04s elapsed, ~9m47s left
+[ 81%] dataset 110/135 · fold03_P003 lstm w60 · 41m28s elapsed, ~9m25s left
+[ 82%] dataset 111/135 · fold03_P003 gru w60 · 41m52s elapsed, ~9m03s left
+[ 83%] dataset 112/135 · fold04_P004 lstm w60 · 42m28s elapsed, ~8m43s left
+[ 84%] dataset 113/135 · fold04_P004 gru w60 · 42m50s elapsed, ~8m20s left
+[ 84%] dataset 114/135 · fold05_P005 lstm w60 · 43m13s elapsed, ~7m57s left
+[ 85%] dataset 115/135 · fold05_P005 gru w60 · 43m35s elapsed, ~7m34s left
+[ 86%] dataset 116/135 · fold06_P006 lstm w60 · 43m57s elapsed, ~7m11s left
+[ 87%] dataset 117/135 · fold06_P006 gru w60 · 44m18s elapsed, ~6m49s left
+[ 87%] dataset 118/135 · fold07_P007 lstm w60 · 44m41s elapsed, ~6m26s left
+[ 88%] dataset 119/135 · fold07_P007 gru w60 · 45m03s elapsed, ~6m03s left
+[ 89%] dataset 120/135 · fold08_P008 lstm w60 · 45m25s elapsed, ~5m40s left
+[ 90%] dataset 121/135 · fold08_P008 gru w60 · 45m50s elapsed, ~5m18s left
+[ 90%] dataset 122/135 · fold09_P009 lstm w60 · 46m11s elapsed, ~4m55s left
+[ 91%] dataset 123/135 · fold09_P009 gru w60 · 46m32s elapsed, ~4m32s left
+[ 92%] dataset 124/135 · fold10_P010 lstm w60 · 46m53s elapsed, ~4m09s left
+[ 93%] dataset 125/135 · fold10_P010 gru w60 · 47m13s elapsed, ~3m46s left
+[ 93%] dataset 126/135 · fold11_P011 lstm w60 · 47m37s elapsed, ~3m24s left
+[ 94%] dataset 127/135 · fold11_P011 gru w60 · 48m00s elapsed, ~3m01s left
+[ 95%] dataset 128/135 · fold12_P013 lstm w60 · 48m22s elapsed, ~2m38s left
+[ 96%] dataset 129/135 · fold12_P013 gru w60 · 48m45s elapsed, ~2m16s left
+[ 96%] dataset 130/135 · fold13_P014 lstm w60 · 49m07s elapsed, ~1m53s left
+[ 97%] dataset 131/135 · fold13_P014 gru w60 · 49m30s elapsed, ~1m30s left
+[ 98%] dataset 132/135 · fold14_P015 lstm w60 · 49m51s elapsed, ~1m07s left
+[ 99%] dataset 133/135 · fold14_P015 gru w60 · 50m13s elapsed, ~45s left
+[ 99%] dataset 134/135 · fold15_P016 lstm w60 · 50m36s elapsed, ~22s left
+[100%] dataset 135/135 · fold15_P016 gru w60 · 50m58s elapsed, ~0s left
+  evaluation: lopo (15 fold(s))
+  random_forest frames: test F1(writing)=0.7829±0.1026 acc=0.7395±0.1382 (15 folds, 212.0s)
+  velocity_threshold frames: test F1(writing)=0.7712±0.1137 acc=0.7149±0.1170 (15 folds, 12.9s)
+  extension_threshold frames: test F1(writing)=0.7444±0.1256 acc=0.6741±0.1295 (15 folds, 12.7s)
+  lstm w15/s5: test F1(writing)=0.7552±0.1238 acc=0.6972±0.1574 (15 folds, 469.0s)
+  gru w15/s5: test F1(writing)=0.7636±0.1300 acc=0.7151±0.1586 (15 folds, 448.3s)
+  lstm w30/s5: test F1(writing)=0.7475±0.1199 acc=0.6745±0.1563 (15 folds, 516.6s)
+  gru w30/s5: test F1(writing)=0.7747±0.1184 acc=0.7118±0.1528 (15 folds, 461.7s)
+  lstm w60/s10: test F1(writing)=0.7511±0.1207 acc=0.6757±0.1505 (15 folds, 306.2s)
+  gru w60/s10: test F1(writing)=0.7680±0.1165 acc=0.6969±0.1378 (15 folds, 290.0s)
+
+Report: /home/kwame/airwrite_trainer/reports/run_20260920_062153/report.md
+Models + results.json in: /home/kwame/airwrite_trainer/reports/run_20260920_062153
+
+Exporting ONNX models…
+  dataset_gru_w15.keras -> dataset_gru_w15.onnx  (parity max diff 9.59e-08)
+  dataset_gru_w30.keras -> dataset_gru_w30.onnx  (parity max diff 3.07e-08)
+  dataset_gru_w60.keras -> dataset_gru_w60.onnx  (parity max diff 5.96e-08)
+  dataset_lstm_w15.keras -> dataset_lstm_w15.onnx  (parity max diff 5.96e-08)
+  dataset_lstm_w30.keras -> dataset_lstm_w30.onnx  (parity max diff 5.96e-08)
+  dataset_lstm_w60.keras -> dataset_lstm_w60.onnx  (parity max diff 5.96e-08)
+  dataset_random_forest.joblib -> dataset_random_forest.onnx  (parity max diff 4.63e-07)
+  inference spec -> inference_spec.json (76 features, 9 model thresholds)
+ONNX export: 7 converted, 0 failed

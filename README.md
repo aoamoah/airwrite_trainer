@@ -197,7 +197,7 @@ cross-validation.
 venv/bin/python train.py --quick --max-folds 2
 ```
 
-### The combined corpus (RQ4)
+### The combined corpus (RQ1 — across data sources)
 
 ```bash
 venv/bin/python train.py --datasets dataset dataset_IPN --combine \

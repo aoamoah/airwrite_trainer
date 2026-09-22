@@ -17,6 +17,7 @@ Usage:
 """
 
 import argparse
+import json
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -192,6 +193,13 @@ def main():
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_dir = PROJECT_ROOT / cfg["report"]["out_dir"] / f"run_{stamp}"
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    # The ONNX/spec export runs in a subprocess and reloads config.yaml, which
+    # loses every CLI flag applied above — that is how the ablation runs came
+    # to ship specs describing the default 76-feature set regardless of what
+    # was trained. Persist the effective config so the run is self-describing.
+    (out_dir / "config_effective.json").write_text(
+        json.dumps(cfg, indent=2, default=str), encoding="utf-8")
 
     all_results, all_details = [], {}
 

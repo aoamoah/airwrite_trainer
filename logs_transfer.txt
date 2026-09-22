@@ -1,0 +1,46 @@
+nohup: ignoring input
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789853245.471307  839886 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/kwame/airwrite_trainer/src/data/loaders.py:111: DtypeWarning: Columns (0: handedness) have mixed types. Specify dtype option on import or set low_memory=False.
+  landmarks = pd.read_csv(d / "landmarks.csv")
+/home/kwame/airwrite_trainer/src/data/loaders.py:111: DtypeWarning: Columns (0: handedness) have mixed types. Specify dtype option on import or set low_memory=False.
+  landmarks = pd.read_csv(d / "landmarks.csv")
+Datasets: dataset, dataset_WITA, dataset_IPN
+Models: velocity_threshold, extension_threshold, random_forest, lstm, gru
+
+=== transfer: train dataset_IPN (242,991 frames) -> test dataset (69,277) ===
+[ 11%] dataset_IPN->dataset 1/9 · transfer_dataset_IPN_to_dataset random_forest · 54s elapsed, ~7m17s left
+[ 22%] dataset_IPN->dataset 2/9 · transfer_dataset_IPN_to_dataset velocity_threshold · 58s elapsed, ~3m23s left
+[ 33%] dataset_IPN->dataset 3/9 · transfer_dataset_IPN_to_dataset extension_threshold · 1m01s elapsed, ~2m03s left
+I0000 00:00:1789853322.068169  839886 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9707 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:05:00.0, compute capability: 8.6
+I0000 00:00:1789853325.290944  840985 cuda_dnn.cc:461] Loaded cuDNN version 92400
+[ 44%] dataset_IPN->dataset 4/9 · transfer_dataset_IPN_to_dataset lstm w15 · 5m29s elapsed, ~6m51s left
+[ 56%] dataset_IPN->dataset 5/9 · transfer_dataset_IPN_to_dataset gru w15 · 9m48s elapsed, ~7m50s left
+[ 67%] dataset_IPN->dataset 6/9 · transfer_dataset_IPN_to_dataset lstm w30 · 12m22s elapsed, ~6m11s left
+[ 78%] dataset_IPN->dataset 7/9 · transfer_dataset_IPN_to_dataset gru w30 · 15m00s elapsed, ~4m17s left
+[ 89%] dataset_IPN->dataset 8/9 · transfer_dataset_IPN_to_dataset lstm w60 · 16m41s elapsed, ~2m05s left
+[100%] dataset_IPN->dataset 9/9 · transfer_dataset_IPN_to_dataset gru w60 · 19m08s elapsed, ~0s left
+  random_forest frames: test F1(writing)=0.6731
+  velocity_threshold frames: test F1(writing)=0.7777
+  extension_threshold frames: test F1(writing)=0.6697
+  lstm w15/s5: test F1(writing)=0.6825
+  gru w15/s5: test F1(writing)=0.6724
+  lstm w30/s5: test F1(writing)=0.6601
+  gru w30/s5: test F1(writing)=0.6201
+  lstm w60/s10: test F1(writing)=0.6087
+  gru w60/s10: test F1(writing)=0.6446
+
+Report: /home/kwame/airwrite_trainer/reports/run_20260919_222736/report.md
+Models + results.json in: /home/kwame/airwrite_trainer/reports/run_20260919_222736
+
+Exporting ONNX models…
+  dataset_IPN->dataset_gru_w15.keras -> dataset_IPN->dataset_gru_w15.onnx  (parity max diff 1.12e-07)
+  dataset_IPN->dataset_gru_w30.keras -> dataset_IPN->dataset_gru_w30.onnx  (parity max diff 0.00e+00)
+  dataset_IPN->dataset_gru_w60.keras -> dataset_IPN->dataset_gru_w60.onnx  (parity max diff 5.96e-08)
+  dataset_IPN->dataset_lstm_w15.keras -> dataset_IPN->dataset_lstm_w15.onnx  (parity max diff 1.49e-08)
+  dataset_IPN->dataset_lstm_w30.keras -> dataset_IPN->dataset_lstm_w30.onnx  (parity max diff 2.98e-08)
+  dataset_IPN->dataset_lstm_w60.keras -> dataset_IPN->dataset_lstm_w60.onnx  (parity max diff 2.98e-08)
+  dataset_IPN->dataset_random_forest.joblib -> dataset_IPN->dataset_random_forest.onnx  (parity max diff 1.84e-07)
+  inference spec -> inference_spec.json (76 features, 9 model thresholds)
+ONNX export: 7 converted, 0 failed

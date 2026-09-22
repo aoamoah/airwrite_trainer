@@ -1,4 +1,4 @@
-"""Rule-based baselines (Objective 4).
+"""Rule-based baselines (Objective 2: learned models against a hand-crafted rule).
 
 Two non-learned detectors that the learned models have to beat for the
 comparison to mean anything:

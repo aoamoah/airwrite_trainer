@@ -83,6 +83,21 @@ def _assert_parity(onnx_path, feeds, expected, name, output_index=0, column=None
     print(f"  {name} -> {onnx_path.name}  (parity max diff {diff:.2e})")
 
 
+def _effective_config(run_dir: Path) -> dict:
+    """Load the config the run was actually trained with.
+
+    train.py writes config_effective.json into the run directory after applying
+    its CLI flags. Falling back to config.yaml is what made every ablation
+    export a spec for the default feature set regardless of what was trained.
+    """
+    path = run_dir / "config_effective.json"
+    if path.is_file():
+        return json.loads(path.read_text(encoding="utf-8"))
+    print(f"  [warn] {run_dir.name} has no config_effective.json — falling "
+          "back to config.yaml; the spec may not match the models")
+    return load_config()
+
+
 def feature_order(prep: dict) -> list[str]:
     """Rebuild the training feature order exactly as `preprocess.py` does.
 
@@ -237,7 +252,8 @@ def write_spec(models_dir: Path, cfg: dict, converted: list[str], run_dir: Path)
         "n_features": len(features),
         "feature_order": features,
         "feature_groups": {
-            "pose": sum(1 for c in features if c.startswith("l")),
+            "pose": sum(1 for c in features
+                        if c in LANDMARK_COLUMNS or c in WORLD_COLUMNS),
             "motion": sum(1 for c in features if c.startswith("mot_")),
             "velocity": sum(1 for c in features if c.startswith("d_")),
             "flags": ["hand_detected"],
@@ -315,7 +331,7 @@ def main():
         print(f"No models/ folder under {run_dir}")
         sys.exit(1)
 
-    cfg = load_config()
+    cfg = _effective_config(run_dir)
     converted, failed = [], []
     for path in sorted(models_dir.iterdir()):
         try:
